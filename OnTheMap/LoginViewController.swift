@@ -13,13 +13,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var login: UIButton!
-
+    @IBOutlet weak var debugError: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.username.delegate = self
         self.password.delegate = self
     }
+
     
     // When enter is clicked, keyboard toggles down
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -34,20 +36,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func clickedLogin(sender: AnyObject) {
             self.postSessionID() { (success, errorString) in
-                print(success, errorString)
+                performUIUpdatesOnMain() {
+                    if success {
+                        self.completeLogin()
+                    } else {
+                        self.displayError(errorString)
+                    }
+                }
             }
         }
-        
+    
+    
+    
+    private func completeLogin() {
+        debugError.text = ""
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("MapViewController") as! UINavigationController
+        presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    // if the username or password is incorrect the error comes up
+    private func displayError(errorString: String?) {
+        if let errorString = errorString {
+            debugError.text = errorString
+        }
+    }
+
     
      func postSessionID(completionHandlerForPOST: (success: Bool, errorString: String?) -> Void) {
-        
-    
+        // CHANGE THIS LATER,should be self.username.text!and self.password.text!
+        let u = "caroline_davis@live.com"
+        let p = "Rainbow_1"
     // create url and request
     let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
     request.HTTPMethod = "POST"
     request.addValue("application/json", forHTTPHeaderField: "Accept")
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.HTTPBody = "{\"udacity\": {\"username\": \"\(self.username.text!)\", \"password\": \"\(self.password.text!)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
+    request.HTTPBody = "{\"udacity\": {\"username\": \"\(u)\", \"password\": \"\(p)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
 
 
     // create network request
@@ -77,7 +101,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-        print(NSString(data: newData, encoding: NSUTF8StringEncoding))
         
         
         var parsedResult: AnyObject!
@@ -87,6 +110,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(newData)'"]
             completionHandlerForPOST(success: false, errorString: String(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
+        
+        completionHandlerForPOST(success: true, errorString: nil)
 
         
     }

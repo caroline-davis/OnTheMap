@@ -50,6 +50,12 @@
                                     <action selector="clickedLogin:" destination="xy9-Sj-2TG" eventType="touchUpInside" id="kna-c7-GXX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT5-LR-e1w">
+                                <rect key="frame" x="272" y="508" width="58" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -57,11 +63,13 @@
                             <constraint firstItem="F5b-Sl-YPd" firstAttribute="centerX" secondItem="faJ-It-HtH" secondAttribute="centerX" id="Euc-2Z-Hjy"/>
                             <constraint firstItem="faJ-It-HtH" firstAttribute="centerX" secondItem="cph-AR-Fyg" secondAttribute="centerX" id="HdU-OK-Aos"/>
                             <constraint firstItem="F5b-Sl-YPd" firstAttribute="top" secondItem="faJ-It-HtH" secondAttribute="bottom" constant="27" id="SLG-Gw-GoB"/>
+                            <constraint firstItem="cT5-LR-e1w" firstAttribute="centerX" secondItem="FST-59-KDX" secondAttribute="centerX" id="dLo-E5-gwB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cph-AR-Fyg" secondAttribute="trailing" constant="-20" id="xJO-xU-TL5"/>
                             <constraint firstItem="cph-AR-Fyg" firstAttribute="leading" secondItem="uYv-L6-pIl" secondAttribute="leadingMargin" constant="-20" id="zJy-CW-JrW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="debugError" destination="cT5-LR-e1w" id="sEj-09-f0w"/>
                         <outlet property="login" destination="FST-59-KDX" id="2R7-ah-tiR"/>
                         <outlet property="password" destination="F5b-Sl-YPd" id="i67-fr-kdi"/>
                         <outlet property="username" destination="faJ-It-HtH" id="BdG-PQ-Guu"/>
@@ -74,7 +82,7 @@
         <!--Map View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="vXZ-lx-hvc" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
