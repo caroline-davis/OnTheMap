@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var login: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,32 +32,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.text = ""
     }
     
-    @IBAction func clickedLogin () {
+    @IBAction func clickedLogin(sender: AnyObject) {
+            self.postSessionID() { (success, errorString) in
+                print(success, errorString)
+            }
+        }
         
     
-     func postSessionID(parameters: [String:AnyObject], completionHandlerForPOST: (success: Bool, errorString: String?) -> Void) {
+     func postSessionID(completionHandlerForPOST: (success: Bool, errorString: String?) -> Void) {
         
-        let parameters = [
-            "username": self.username.text,
-            "password": self.password.text
-        ]
-        
-        print(parameters)
     
     // create url and request
     let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
     request.HTTPMethod = "POST"
     request.addValue("application/json", forHTTPHeaderField: "Accept")
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.HTTPBody = "{\"udacity\": {\"username\": \"\(self.username.text)\", \"password\": \"\(self.password.text)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
-        
+    request.HTTPBody = "{\"udacity\": {\"username\": \"\(self.username.text!)\", \"password\": \"\(self.password.text!)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
+
+
     // create network request
     let session = NSURLSession.sharedSession()
     let task = session.dataTaskWithRequest(request) { data, response, error in
         
         func sendError(error: String) {
             let userInfo = [NSLocalizedDescriptionKey : error]
-            completionHandlerForPOST(success: false, errorString: String(UTF8String: "taskForPOSTMethod"))
+            completionHandlerForPOST(success: false, errorString: error)
         }
 
         /* GUARD: Was there an error? */
@@ -76,16 +76,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             sendError("No data was returned by the request!")
             return
         }
-        
         let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
         print(NSString(data: newData, encoding: NSUTF8StringEncoding))
         
         
         var parsedResult: AnyObject!
         do {
-            parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+            parsedResult = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
         } catch {
-            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
+            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(newData)'"]
             completionHandlerForPOST(success: false, errorString: String(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
 
@@ -93,8 +92,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     task.resume()
     
-    }
     
     }
+    
     
 }

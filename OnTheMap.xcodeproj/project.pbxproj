@@ -14,6 +14,7 @@
 		4DFABCF21AC0CBAC00D21C43 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFABCF01AC0CBAC00D21C43 /* LaunchScreen.xib */; };
 		4DFABCFE1AC0CBAC00D21C43 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFABCFD1AC0CBAC00D21C43 /* OnTheMapTests.swift */; };
 		F1290ECB1D93B4BE00444FFF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1290ECA1D93B4BE00444FFF /* LoginViewController.swift */; };
+		F1D20C871D98E21B00C92864 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D20C861D98E21B00C92864 /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		4DFABCFC1AC0CBAC00D21C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DFABCFD1AC0CBAC00D21C43 /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
 		F1290ECA1D93B4BE00444FFF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F1D20C861D98E21B00C92864 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +83,13 @@
 			isa = PBXGroup;
 			children = (
 				4DFABCE71AC0CBAC00D21C43 /* AppDelegate.swift */,
+				F1D20C861D98E21B00C92864 /* GCDBlackBox.swift */,
 				F1290EC91D93B44F00444FFF /* Controllers */,
 				4DFABCEB1AC0CBAC00D21C43 /* Main.storyboard */,
 				4DFABCEE1AC0CBAC00D21C43 /* Images.xcassets */,
 				4DFABCF01AC0CBAC00D21C43 /* LaunchScreen.xib */,
 				4DFABCE51AC0CBAC00D21C43 /* Supporting Files */,
 			);
-			name = OnTheMap;
 			path = OnTheMap;
 			sourceTree = "<group>";
 		};
@@ -105,7 +107,6 @@
 				4DFABCFD1AC0CBAC00D21C43 /* OnTheMapTests.swift */,
 				4DFABCFB1AC0CBAC00D21C43 /* Supporting Files */,
 			);
-			name = OnTheMapTests;
 			path = OnTheMapTests;
 			sourceTree = "<group>";
 		};
@@ -228,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D20C871D98E21B00C92864 /* GCDBlackBox.swift in Sources */,
 				F1290ECB1D93B4BE00444FFF /* LoginViewController.swift in Sources */,
 				4DFABCEA1AC0CBAC00D21C43 /* MapViewController.swift in Sources */,
 				4DFABCE81AC0CBAC00D21C43 /* AppDelegate.swift in Sources */,
