@@ -50,7 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private func completeLogin() {
         debugError.text = ""
-        let controller = storyboard!.instantiateViewControllerWithIdentifier("MapViewController") as! UINavigationController
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
         presentViewController(controller, animated: true, completion: nil)
     }
     
