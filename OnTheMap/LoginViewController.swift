@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  PinSample
+//  OnTheMap
 //
 //  Created by Caroline Davis on 22/09/2016.
 //  Copyright © 2016 Udacity. All rights reserved.
@@ -64,8 +64,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
      func postSessionID(completionHandlerForPOST: (success: Bool, errorString: String?) -> Void) {
         // CHANGE THIS LATER,should be self.username.text!and self.password.text!
+        
+        //if (self.username.text!and self.password.text!)
         let u = "caroline_davis@live.com"
-        let p = "Rainbow_1"
+        let p = "Rainbow_12222"
     // create url and request
     let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
     request.HTTPMethod = "POST"
@@ -91,7 +93,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         /* GUARD: Did we get a successful 2XX response? */
         guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-            sendError("Your request returned a status code other than 2xx!")
+            let code = (response as? NSHTTPURLResponse)?.statusCode
+            if code == 403 {
+                sendError("Your username or password is incorrect")
+            } else {
+                sendError("Your request returned a status code other than 2xx!")
+            }
             return
         }
         

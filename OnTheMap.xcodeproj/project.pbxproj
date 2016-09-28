@@ -13,6 +13,7 @@
 		4DFABCEF1AC0CBAC00D21C43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DFABCEE1AC0CBAC00D21C43 /* Images.xcassets */; };
 		4DFABCF21AC0CBAC00D21C43 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFABCF01AC0CBAC00D21C43 /* LaunchScreen.xib */; };
 		4DFABCFE1AC0CBAC00D21C43 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFABCFD1AC0CBAC00D21C43 /* OnTheMapTests.swift */; };
+		F10D5CF41D9B78FC0067AC23 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5CF31D9B78FC0067AC23 /* StudentInformation.swift */; };
 		F1290ECB1D93B4BE00444FFF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1290ECA1D93B4BE00444FFF /* LoginViewController.swift */; };
 		F1947E851D9A38D100BE8F53 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1947E841D9A38D100BE8F53 /* TableViewController.swift */; };
 		F1D20C871D98E21B00C92864 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D20C861D98E21B00C92864 /* GCDBlackBox.swift */; };
@@ -39,6 +40,7 @@
 		4DFABCF71AC0CBAC00D21C43 /* OnTheMap.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMap.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DFABCFC1AC0CBAC00D21C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DFABCFD1AC0CBAC00D21C43 /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
+		F10D5CF31D9B78FC0067AC23 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		F1290ECA1D93B4BE00444FFF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F1947E841D9A38D100BE8F53 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F1D20C861D98E21B00C92864 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
@@ -86,7 +88,9 @@
 			children = (
 				4DFABCE71AC0CBAC00D21C43 /* AppDelegate.swift */,
 				F1D20C861D98E21B00C92864 /* GCDBlackBox.swift */,
-				F1290EC91D93B44F00444FFF /* Controllers */,
+				F10D5CF11D9B788E0067AC23 /* Model */,
+				F10D5CF21D9B789B0067AC23 /* View */,
+				F1290EC91D93B44F00444FFF /* Controller */,
 				4DFABCEB1AC0CBAC00D21C43 /* Main.storyboard */,
 				4DFABCEE1AC0CBAC00D21C43 /* Images.xcassets */,
 				4DFABCF01AC0CBAC00D21C43 /* LaunchScreen.xib */,
@@ -120,14 +124,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F1290EC91D93B44F00444FFF /* Controllers */ = {
+		F10D5CF11D9B788E0067AC23 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F10D5CF31D9B78FC0067AC23 /* StudentInformation.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F10D5CF21D9B789B0067AC23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F1290EC91D93B44F00444FFF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				4DFABCE91AC0CBAC00D21C43 /* MapViewController.swift */,
 				F1290ECA1D93B4BE00444FFF /* LoginViewController.swift */,
 				F1947E841D9A38D100BE8F53 /* TableViewController.swift */,
 			);
-			name = Controllers;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10D5CF41D9B78FC0067AC23 /* StudentInformation.swift in Sources */,
 				F1D20C871D98E21B00C92864 /* GCDBlackBox.swift in Sources */,
 				F1290ECB1D93B4BE00444FFF /* LoginViewController.swift in Sources */,
 				4DFABCEA1AC0CBAC00D21C43 /* MapViewController.swift in Sources */,
