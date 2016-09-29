@@ -15,20 +15,28 @@ extension Client {
         
         // Uncomment this when you can to use values you have typed into the login
         //if (username && password) {
-            // put the rest of the code from line 23 onwards in here
+        // put the rest of the code from line 23 onwards in here
         //} else {
-            //completionHandlerForAuth(success: false, errorString: "Please enter a username and password")
+        //completionHandlerForAuth(success: false, errorString: "Please enter a username and password")
         //}
         
         let u = "caroline_davis@live.com"
         let p = "Rainbow_1"
         let body = "{\"udacity\": {\"username\": \"\(u)\", \"password\": \"\(p)\"}}"
-        let url = "\(URLs.AuthorizationURL)\(Methods.Session)"
-        print(url)
+        let url = "\(URLs.authorizationURL)\(Methods.session)"
+        
         taskForPostMethod(url, body: body) { (success, errorString) in
             completionHandlerForAuth(success: success, errorString: errorString)
         }
     }
+    
+    func getStudentLocation(url: String, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) {
+        
+        let theURL = URLs.parseURL
+        taskForGETMethod(theURL) { (result, error) in
+            completionHandlerForGET(result: result, error: error)
+            
+        }
+    }
+    
 }
-
-

@@ -48,7 +48,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     
     
-    
     private func completeLogin() {
         debugError.text = ""
         let controller = storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController

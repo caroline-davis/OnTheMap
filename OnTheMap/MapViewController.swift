@@ -42,9 +42,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             if error != nil { // Handle error...
                 return
             }
-            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+        //    print(NSString(data: data!, encoding: NSUTF8StringEncoding))
         }
         task.resume()
+        
+
+        
+        // Getting data for locations
+        Client.sharedInstance().getStudentLocation("url") { (result, error) in
+            
+            if let results = result {
+                
+                for result in results {
+                    print(result)
+                    }
+            }
+        }
+
+        
         
         let locations = hardCodedLocationData()
         

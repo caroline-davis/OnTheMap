@@ -18,6 +18,7 @@
 		F1947E851D9A38D100BE8F53 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1947E841D9A38D100BE8F53 /* TableViewController.swift */; };
 		F1BBB17E1D9C9D24007BF67E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB17D1D9C9D24007BF67E /* Client.swift */; };
 		F1BBB1801D9CB017007BF67E /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB17F1D9CB017007BF67E /* Convenience.swift */; };
+		F1BBB1821D9CE2B9007BF67E /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB1811D9CE2B9007BF67E /* Students.swift */; };
 		F1D20C871D98E21B00C92864 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D20C861D98E21B00C92864 /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		F1947E841D9A38D100BE8F53 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F1BBB17D1D9C9D24007BF67E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		F1BBB17F1D9CB017007BF67E /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
+		F1BBB1811D9CE2B9007BF67E /* Students.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
 		F1D20C861D98E21B00C92864 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				F10D5CF31D9B78FC0067AC23 /* Constants.swift */,
+				F1BBB1811D9CE2B9007BF67E /* Students.swift */,
 				F1BBB17D1D9C9D24007BF67E /* Client.swift */,
 				F1BBB17F1D9CB017007BF67E /* Convenience.swift */,
 			);
@@ -263,6 +266,7 @@
 				F1290ECB1D93B4BE00444FFF /* LoginViewController.swift in Sources */,
 				F1BBB17E1D9C9D24007BF67E /* Client.swift in Sources */,
 				4DFABCEA1AC0CBAC00D21C43 /* MapViewController.swift in Sources */,
+				F1BBB1821D9CE2B9007BF67E /* Students.swift in Sources */,
 				F1947E851D9A38D100BE8F53 /* TableViewController.swift in Sources */,
 				4DFABCE81AC0CBAC00D21C43 /* AppDelegate.swift in Sources */,
 			);
