@@ -30,10 +30,10 @@ extension Client {
         }
     }
     
-    func getStudentLocation(url: String, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) {
+    func getStudentLocation(completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) {
         
-        let theURL = URLs.parseURL
-        taskForGETMethod(theURL) { (result, error) in
+        let url = URLs.parseURL
+        taskForGETMethod(url) { (result, error) in
             completionHandlerForGET(result: result, error: error)
             
         }
