@@ -9,15 +9,6 @@
 import Foundation
 
 // array from students info
-
 class Students {
-    
-  
-   
+    static var studentInfoArray: [Client.StudentInfo] = []
 }
-
-
-
-
-
-// var students = [StudentInfo]()

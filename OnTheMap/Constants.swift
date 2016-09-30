@@ -9,6 +9,7 @@
 import Foundation
 
 extension Client {
+
     
     // constant URLs
     struct URLs {
@@ -44,29 +45,30 @@ extension Client {
     
     // using parameter keys
     struct StudentInfo {
-        let createdAt: String
-        let firstName: String
-        let lastName: String
-        let longitude: Double
-        let latitude: Double
-        let mapString: String
-        let mediaURL: String
-        let objectId: String
-        let uniqueKey: Int
-        let updatedAt: String
+        let createdAt: String?
+        let firstName: String?
+        let lastName: String?
+        let longitude: Double?
+        let latitude: Double?
+        let mapString: String?
+        let mediaURL: String?
+        let objectId: String?
+        let uniqueKey: String?
+        let updatedAt: String?
         
-        init(createdAt: String, firstName: String, lastName: String, longitude: Double, latitude: Double, mapString: String, mediaURL: String, objectId: String, uniqueKey: Int, updatedAt: String) {
+        init(studentDictionary: Dictionary<String, AnyObject>) {
             
-            self.createdAt = createdAt
-            self.firstName = firstName
-            self.lastName = lastName
-            self.longitude = longitude
-            self.latitude = latitude
-            self.mapString = mapString
-            self.mediaURL = mediaURL
-            self.objectId = objectId
-            self.uniqueKey = uniqueKey
-            self.updatedAt = updatedAt
+            self.createdAt = studentDictionary["createdAt"] as? String
+            self.firstName = studentDictionary["firstName"] as? String
+            self.lastName = studentDictionary["lastName"] as? String
+            self.longitude = studentDictionary["longitude"] as? Double
+            self.latitude = studentDictionary["latitude"] as? Double
+            self.mapString = studentDictionary["mapString"] as? String
+            self.mediaURL = studentDictionary["mediaURL"] as? String
+            self.objectId = studentDictionary["objectId"] as? String
+            self.uniqueKey = studentDictionary["uniqueKey"] as? String
+            self.updatedAt = studentDictionary["updatedAt"] as? String
         }
     }
+    
 }

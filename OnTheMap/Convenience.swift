@@ -32,8 +32,15 @@ extension Client {
     
     func getStudentLocation(completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) {
         
+        
         let url = URLs.parseURL
         taskForGETMethod(url) { (result, error) in
+            if let students = result["results"] as? [AnyObject] {
+                for student in students {
+                    let newStudentStruct = StudentInfo(studentDictionary: student as! Dictionary<String, AnyObject>)
+                    Students.studentInfoArray.append(newStudentStruct)
+                }
+            }
             completionHandlerForGET(result: result, error: error)
             
         }
