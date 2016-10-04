@@ -34,9 +34,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         // Getting data for locations
         Client.sharedInstance().getStudentLocation() { (result, error) in
-            //print(result)
+            
             if result != nil {
-                
             }
             let locations = Students.studentInfoArray
             
@@ -49,7 +48,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             // used to create custom structs. Perhaps StudentLocation structs.
             
             for location in locations {
-                print(location)
+                //print(location)
                 
                 if location.latitude != nil || location.longitude != nil{
                     // Notice that the float values are being used to create CLLocationDegree values.
@@ -57,11 +56,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     let lat = CLLocationDegrees(location.latitude!)
                     let long = CLLocationDegrees(location.longitude!)
                     
-                    // The lat and long are used to create a CLLocationCoordinates2D instance.
+                    // The lat and long are used to create a CLLocationCoordinates2D instance
                     let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                     
-                    let first = location.firstName
-                    let last = location.lastName
+                    // The ! after the names gets rid of the (optional) word on the map screen
+                    let first = location.firstName!
+                    let last = location.lastName!
                     let mediaURL = location.mediaURL
                     
                     // Here we create the annotation and set its coordiate, title, and subtitle properties
@@ -74,7 +74,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     annotations.append(annotation)
                     
                 } else {
-                
                     print("No pin can be placed as the longitude or latitude data has not been given")
                 }
                 

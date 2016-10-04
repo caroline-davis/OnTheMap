@@ -10,10 +10,19 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    // reuse identifier
     var tableCell = "locationCell"
+    
+    // data for the table
+    var locationInfo: [Client.StudentInfo] {
+        return Students.studentInfoArray
+    }
+    
+    //Students.studentInfoArray
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(locationInfo, "hi")
         
         // The tableview cell class and its reuse identifier name
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: tableCell)
@@ -26,5 +35,27 @@ class TableViewController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
     }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.locationInfo.count
+    }
+    
+    override func tableView(tableView:UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(self.tableCell)!
+        let studentStruct = self.locationInfo[indexPath.row]
 
+       
+        cell.textLabel?.text = ("\(studentStruct.firstName!) \(studentStruct.lastName!)")
+   //     cell.detailTextLabel?.text = dictionary["detail"]
+        
+        return cell
+        }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            let studentStruct = self.locationInfo[indexPath.row]
+            let app = UIApplication.sharedApplication()
+            app.openURL(NSURL(string: studentStruct.mediaURL!)!)
+
+    }
+    
 }
