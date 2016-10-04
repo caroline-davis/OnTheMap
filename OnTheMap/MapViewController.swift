@@ -51,33 +51,33 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             for location in locations {
                 print(location)
                 
-                if location.latitude == nil || location.longitude == nil{
+                if location.latitude != nil || location.longitude != nil{
+                    // Notice that the float values are being used to create CLLocationDegree values.
+                    // This is a version of the Double type.
+                    let lat = CLLocationDegrees(location.latitude!)
+                    let long = CLLocationDegrees(location.longitude!)
+                    
+                    // The lat and long are used to create a CLLocationCoordinates2D instance.
+                    let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    
+                    let first = location.firstName
+                    let last = location.lastName
+                    let mediaURL = location.mediaURL
+                    
+                    // Here we create the annotation and set its coordiate, title, and subtitle properties
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = coordinate
+                    annotation.title = "\(first) \(last)"
+                    annotation.subtitle = mediaURL
+                    
+                    // Finally we place the annotation in an array of annotations.
+                    annotations.append(annotation)
+                    
+                } else {
+                
                     print("No pin can be placed as the longitude or latitude data has not been given")
-                    return
                 }
                 
-                // Notice that the float values are being used to create CLLocationDegree values.
-                // This is a version of the Double type.
-                let lat = CLLocationDegrees(location.latitude!)
-                let long = CLLocationDegrees(location.longitude!)
-                
-                
-                
-                // The lat and long are used to create a CLLocationCoordinates2D instance.
-                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                
-                let first = location.firstName
-                let last = location.lastName
-                let mediaURL = location.mediaURL
-                
-                // Here we create the annotation and set its coordiate, title, and subtitle properties
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = "\(first) \(last)"
-                annotation.subtitle = mediaURL
-                
-                // Finally we place the annotation in an array of annotations.
-                annotations.append(annotation)
             }
             
             // When the array is complete, we add the annotations to the map.
