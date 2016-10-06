@@ -46,11 +46,13 @@ class TableViewController: UITableViewController {
 
        
         cell.textLabel?.text = ("\(studentStruct.firstName!) \(studentStruct.lastName!)")
-   //     cell.detailTextLabel?.text = dictionary["detail"]
+       // cell.detailTextLabel?.text = ("\(studentStruct.firstName!) \(studentStruct.lastName!)")
         
         return cell
         }
     
+    
+    // when the button is pressed the url opens in safari
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             let studentStruct = self.locationInfo[indexPath.row]
             let app = UIApplication.sharedApplication()

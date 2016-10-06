@@ -124,7 +124,7 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wsC-T6-DjN" secondAttribute="bottom" id="oZl-Al-9Xp"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="mdE-u8-qbK"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="mdE-u8-qbK"/>
                     <connections>
                         <outlet property="mapView" destination="wsC-T6-DjN" id="qdk-b8-F4r"/>
                     </connections>
@@ -175,11 +175,15 @@
                             <outlet property="delegate" destination="QRS-Xv-M5c" id="lzg-sA-ulY"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Kwg-N1-78Y"/>
+                    <tabBarItem key="tabBarItem" title="List" image="ListIcon" id="Kwg-N1-78Y"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfF-Yz-Hub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1608" y="695"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ListIcon" width="32" height="32"/>
+        <image name="MapIcon" width="32" height="32"/>
+    </resources>
 </document>
