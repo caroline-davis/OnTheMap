@@ -46,7 +46,8 @@ class TableViewController: UITableViewController {
 
        
         cell.textLabel?.text = ("\(studentStruct.firstName!) \(studentStruct.lastName!)")
-       // cell.detailTextLabel?.text = ("\(studentStruct.firstName!) \(studentStruct.lastName!)")
+        let image: UIImage = UIImage(named: "PinIcon")!
+        cell.imageView!.image = image
         
         return cell
         }
