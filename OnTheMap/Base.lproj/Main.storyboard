@@ -145,18 +145,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where are you studying today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouj-fr-GUD">
-                                <rect key="frame" x="182" y="139" width="237" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-2r-j2o">
-                                <rect key="frame" x="213" y="266" width="175" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uii-wN-BSS">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uii-wN-BSS">
                                 <rect key="frame" x="245" y="380" width="111" height="30"/>
                                 <state key="normal" title="Find on the map"/>
                                 <connections>
@@ -168,20 +157,33 @@
                                 <rect key="frame" x="0.0" y="14" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="2rp-WS-eLm">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Ygs-E6-o29">
-                                            <connections>
-                                                <action selector="startOver" destination="RqF-bE-zjx" id="a0H-Nm-d3f"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Ygs-E6-o29"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouj-fr-GUD">
+                                <rect key="frame" x="0.0" y="139" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-2r-j2o">
+                                <rect key="frame" x="213" y="266" width="175" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jaL-z8-COE" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="3c5-OC-o5J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jaL-z8-COE" secondAttribute="trailing" constant="-20" id="amm-6H-Rpa"/>
-                            <constraint firstItem="jaL-z8-COE" firstAttribute="top" secondItem="YVm-Rm-08C" secondAttribute="topMargin" constant="14" id="jy6-2R-ZT1"/>
+                            <constraint firstItem="jaL-z8-COE" firstAttribute="top" secondItem="YVm-Rm-08C" secondAttribute="topMargin" constant="14" id="3qB-g6-jYm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ouj-fr-GUD" secondAttribute="trailing" constant="-20" id="9gf-cE-nNY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jaL-z8-COE" secondAttribute="trailing" constant="-20" id="Cc3-Yf-0ai"/>
+                            <constraint firstItem="Uii-wN-BSS" firstAttribute="centerX" secondItem="bVD-2r-j2o" secondAttribute="centerX" id="FRT-Le-hPo"/>
+                            <constraint firstItem="Uii-wN-BSS" firstAttribute="trailing" secondItem="bVD-2r-j2o" secondAttribute="trailing" id="IvU-xm-fp6"/>
+                            <constraint firstItem="bVD-2r-j2o" firstAttribute="centerX" secondItem="ouj-fr-GUD" secondAttribute="centerX" id="OC4-TK-ct1"/>
+                            <constraint firstItem="jaL-z8-COE" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="afT-cB-73i"/>
+                            <constraint firstItem="ouj-fr-GUD" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="ajz-At-Cbu"/>
+                            <constraint firstItem="bVD-2r-j2o" firstAttribute="top" secondItem="ouj-fr-GUD" secondAttribute="bottom" constant="106" id="xdC-m9-TJC"/>
                         </constraints>
                     </view>
                     <connections>
