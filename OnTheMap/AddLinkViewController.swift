@@ -14,5 +14,11 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    @IBAction func cancel() {
+        self.presentingViewController!.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }

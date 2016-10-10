@@ -15,21 +15,21 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBOutlet weak var pinOnMap: UIButton!
-    @IBOutlet weak var cancel: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "buttonClicked" {
+        if segue.identifier == "findOnMap" {
             segue.destinationViewController as! AddLinkViewController
         }
     }
     
-    @IBAction func clickButton (sender: UIButton!) {
-        performSegueWithIdentifier("buttonClicked", sender: self)
+    @IBAction func clickFindOnMap (sender: UIButton!) {
+        performSegueWithIdentifier("findOnMap", sender: self)
         
         }
     
-    @IBAction func startOver() {
-
+    @IBAction func cancel() {
+        self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
         }
 
 

@@ -149,15 +149,19 @@
                                 <rect key="frame" x="245" y="380" width="111" height="30"/>
                                 <state key="normal" title="Find on the map"/>
                                 <connections>
-                                    <action selector="clickButton:" destination="RqF-bE-zjx" eventType="touchUpInside" id="YPZ-DG-rWW"/>
-                                    <segue destination="h6V-j2-NV7" kind="show" identifier="buttonClicked" id="6ah-gq-OJb"/>
+                                    <action selector="clickFindOnMap:" destination="RqF-bE-zjx" eventType="touchUpInside" id="DgY-uB-IK0"/>
+                                    <segue destination="h6V-j2-NV7" kind="show" identifier="findOnMap" id="6ah-gq-OJb"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaL-z8-COE">
                                 <rect key="frame" x="0.0" y="14" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="2rp-WS-eLm">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Ygs-E6-o29"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Ygs-E6-o29">
+                                            <connections>
+                                                <action selector="cancel" destination="RqF-bE-zjx" id="ktd-oh-OvW"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -187,7 +191,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cancel" destination="Ygs-E6-o29" id="qfW-SD-Esk"/>
+                        <outlet property="cancelButton" destination="Ygs-E6-o29" id="Yjr-Na-bzM"/>
                         <outlet property="pinOnMap" destination="Uii-wN-BSS" id="J9l-UI-51t"/>
                     </connections>
                 </viewController>
@@ -222,7 +226,11 @@
                                 <rect key="frame" x="0.0" y="13" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="vm3-dQ-VMn">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="R31-v4-kXN"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="R31-v4-kXN">
+                                            <connections>
+                                                <action selector="cancel" destination="h6V-j2-NV7" id="aTw-Go-ZZF"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -240,6 +248,9 @@
                             <constraint firstItem="nbX-fv-HTe" firstAttribute="leading" secondItem="YPn-Ho-b8a" secondAttribute="leadingMargin" constant="-20" id="wB4-O6-lam"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="R31-v4-kXN" id="VDb-M6-Bbp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALb-is-ncc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
