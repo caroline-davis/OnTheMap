@@ -155,8 +155,8 @@
 		F1290EC91D93B44F00444FFF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4DFABCE91AC0CBAC00D21C43 /* MapViewController.swift */,
 				F1290ECA1D93B4BE00444FFF /* LoginViewController.swift */,
+				4DFABCE91AC0CBAC00D21C43 /* MapViewController.swift */,
 				F1947E841D9A38D100BE8F53 /* TableViewController.swift */,
 				F1BA872C1DA72AD200DA8A65 /* AddPinViewController.swift */,
 				F1BA872E1DA75E5B00DA8A65 /* AddLinkViewController.swift */,

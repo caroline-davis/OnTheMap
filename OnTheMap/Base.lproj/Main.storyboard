@@ -192,6 +192,7 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="Ygs-E6-o29" id="Yjr-Na-bzM"/>
+                        <outlet property="enterLocation" destination="bVD-2r-j2o" id="gBx-m3-K9S"/>
                         <outlet property="pinOnMap" destination="Uii-wN-BSS" id="J9l-UI-51t"/>
                     </connections>
                 </viewController>
@@ -249,6 +250,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addLink" destination="rzQ-MO-N95" id="FIi-tn-bIf"/>
                         <outlet property="cancelButton" destination="R31-v4-kXN" id="VDb-M6-Bbp"/>
                     </connections>
                 </viewController>

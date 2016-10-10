@@ -134,7 +134,6 @@ class Client: NSObject {
         
         completionHandlerForConvertData(result: parsedResult, error: nil)
     }
-
     
     // shared instance singleton
     class func sharedInstance() -> Client {

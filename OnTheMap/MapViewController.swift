@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Udacity. All rights reserved.
 //
 
+
 import UIKit
 import MapKit
 
@@ -21,7 +22,19 @@ import MapKit
 * respond when the "info" button is tapped.
 */
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, Refresh {
+    
+    @IBAction func refresh() {
+        mapView.setCenterCoordinate(mapView.userLocation.coordinate, animated: true)
+    }
+    
+    //extension UIViewController {
+      //  @IBAction func refreshPressed(sender: UIBarButtonItem) {
+            // only refresh if the current view controller conforms to Refresh
+         //   if let viewController = self as? Refresh {
+        //        viewController.refresh()
+       //     }
+      //  }
     
     // The map. See the setup in the Storyboard file. Note particularly that the view controller
     // is set up as the map view's delegate.
@@ -29,7 +42,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.delegate = self
         
         // Getting data for locations

@@ -8,7 +8,15 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+protocol Refresh {
+    func refresh()
+}
+
+class TableViewController: UITableViewController, Refresh {
+    
+    func refresh() {
+          tableView.reloadData()
+    }
     
     // reuse identifier
     var tableCell = "locationCell"
