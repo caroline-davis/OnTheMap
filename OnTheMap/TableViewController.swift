@@ -8,14 +8,11 @@
 
 import UIKit
 
-protocol Refresh {
-    func refresh()
-}
 
-class TableViewController: UITableViewController, Refresh {
+class TableViewController: UITableViewController {
     
     func refresh() {
-          tableView.reloadData()
+        tableView.reloadData()
     }
     
     // reuse identifier

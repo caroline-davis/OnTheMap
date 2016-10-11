@@ -22,19 +22,11 @@ import MapKit
 * respond when the "info" button is tapped.
 */
 
-class MapViewController: UIViewController, MKMapViewDelegate, Refresh {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
-    @IBAction func refresh() {
+    func refresh() {
         mapView.setCenterCoordinate(mapView.userLocation.coordinate, animated: true)
     }
-    
-    //extension UIViewController {
-      //  @IBAction func refreshPressed(sender: UIBarButtonItem) {
-            // only refresh if the current view controller conforms to Refresh
-         //   if let viewController = self as? Refresh {
-        //        viewController.refresh()
-       //     }
-      //  }
     
     // The map. See the setup in the Storyboard file. Note particularly that the view controller
     // is set up as the map view's delegate.
