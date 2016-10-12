@@ -47,12 +47,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             // point annotations will be stored in this array, and then provided to the map view.
             var annotations = [MKPointAnnotation]()
             
-            // The "locations" array is loaded with the sample data below. We are using the dictionaries
-            // to create map annotations. This would be more stylish if the dictionaries were being
-            // used to create custom structs. Perhaps StudentLocation structs.
             
             for location in locations {
-                //print(location)
                 
                 if location.latitude != nil || location.longitude != nil{
                     // Notice that the float values are being used to create CLLocationDegree values.
@@ -103,13 +99,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
-            pinView!.pinColor = .Red
+            pinView!.pinColor = .Green
             pinView!.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
         }
         else {
             pinView!.annotation = annotation
         }
-        
         return pinView
     }
 

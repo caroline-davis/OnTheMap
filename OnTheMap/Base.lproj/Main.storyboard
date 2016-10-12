@@ -149,8 +149,7 @@
                                 <rect key="frame" x="245" y="380" width="111" height="30"/>
                                 <state key="normal" title="Find on the map"/>
                                 <connections>
-                                    <action selector="clickFindOnMap:" destination="RqF-bE-zjx" eventType="touchUpInside" id="DgY-uB-IK0"/>
-                                    <segue destination="h6V-j2-NV7" kind="show" identifier="findOnMap" id="6ah-gq-OJb"/>
+                                    <action selector="clickFindOnMap:" destination="RqF-bE-zjx" eventType="touchUpInside" id="CE7-MC-ibu"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaL-z8-COE">
@@ -194,6 +193,7 @@
                         <outlet property="cancelButton" destination="Ygs-E6-o29" id="Yjr-Na-bzM"/>
                         <outlet property="enterLocation" destination="bVD-2r-j2o" id="gBx-m3-K9S"/>
                         <outlet property="pinOnMap" destination="Uii-wN-BSS" id="J9l-UI-51t"/>
+                        <segue destination="h6V-j2-NV7" kind="show" identifier="findOnMap" id="p9f-U7-rz1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNn-JW-71f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,6 +252,7 @@
                     <connections>
                         <outlet property="addLink" destination="rzQ-MO-N95" id="FIi-tn-bIf"/>
                         <outlet property="cancelButton" destination="R31-v4-kXN" id="VDb-M6-Bbp"/>
+                        <outlet property="mapView" destination="CkD-PK-1zB" id="Ggg-6U-W7T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALb-is-ncc" userLabel="First Responder" sceneMemberID="firstResponder"/>

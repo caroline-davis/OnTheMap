@@ -25,7 +25,7 @@ class TabBarController: UITabBarController {
             let controller = self.selectedViewController as! TableViewController
             controller.refresh()
         } else {
-            print("No view lad")
+            print("Not able to refresh at this time")
         }
     }
 }

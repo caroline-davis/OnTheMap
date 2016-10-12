@@ -21,19 +21,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.username.delegate = self
         self.password.delegate = self
     }
-
-    
-    // When enter is clicked, keyboard toggles down
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    // Text field turns blank when user clicks on it
-    func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
-    }
-    
     
     @IBAction func clickedLogin(sender: AnyObject) {
         Client.sharedInstance().postSessionID(self.username.text!, password: self.password.text!) { (success, errorString) in
@@ -47,7 +34,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
     
-    
     private func completeLogin() {
         debugError.text = ""
         let controller = storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
@@ -59,6 +45,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let errorString = errorString {
             debugError.text = errorString
         }
+    }
+    
+    // When enter is clicked, keyboard toggles down
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Text field turns blank when user clicks on it
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
     }
     
 }

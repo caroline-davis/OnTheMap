@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-class AddPinViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate  {
+class AddPinViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,18 +21,44 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet weak var enterLocation: UITextField!
     
     
+    // Text field turns blank when user clicks on it
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
+    }
     
+    // Saved text from input in variable location
+    func textFieldDidEndEditing(textField: UITextField) {
+        guard let locationEntry = textField.text where locationEntry != "" else {
+            print("You have not typed in a location")
+            return
+        }
+        self.findLocation(locationEntry)
+    }
+    
+    // Changes user input string into long/lat location. Saves this placemark to the shared
+    // instance file & calls the segue
+    func findLocation(location: String) {
+        let geocoder: CLGeocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location) { (placemarks, errorString) in
+            if (placemarks?.count > 0) {
+                let topResult: CLPlacemark = (placemarks?[0])!
+                let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+                
+                Client.sharedInstance().inputPlacemark = placemark
+                self.clickDone(self.pinOnMap)
+                
+            }
+            
+        }
+
+        
+    }
     
     
     // When enter is clicked, keyboard toggles down
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    // Text field turns blank when user clicks on it
-    func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
     }
     
     // preparing for segue to the addlink viewcontroller
@@ -41,10 +68,19 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
     
-    //  func to open addlink viewcontroller screen
-    @IBAction func clickFindOnMap (sender: UIButton!) {
+    // func for the segue
+    func clickDone (sender: UIButton!) {
         performSegueWithIdentifier("findOnMap", sender: self)
-        
+    }
+    
+    //  func to open addlink viewcontroller screen via clicking the button
+    @IBAction func clickFindOnMap (sender: UIButton!) {
+        guard let locationEntry = self.enterLocation.text where locationEntry != "" else {
+            print("You have not typed in a location")
+            return
+        }
+        print(locationEntry)
+        self.findLocation(locationEntry)
         }
     
     // cancel func button on nav bar

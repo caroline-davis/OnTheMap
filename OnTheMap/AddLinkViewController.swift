@@ -11,15 +11,25 @@ import MapKit
 
 class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var addLink: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addLink.delegate = self
         
+        var region: MKCoordinateRegion = self.mapView.region
+        
+        region.center.latitude = (Client.sharedInstance().inputPlacemark!.coordinate.latitude)
+        region.center.longitude = (Client.sharedInstance().inputPlacemark!.coordinate.longitude)
+        
+        region.span = MKCoordinateSpanMake(0.5, 0.5)
+        
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.addAnnotation(Client.sharedInstance().inputPlacemark!)
     }
-
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var addLink: UITextField!
-    
     
     // When enter is clicked, keyboard toggles down
     func textFieldShouldReturn(textField: UITextField) -> Bool {

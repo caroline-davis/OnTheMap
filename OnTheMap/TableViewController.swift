@@ -22,12 +22,10 @@ class TableViewController: UITableViewController {
     var locationInfo: [Client.StudentInfo] {
         return Students.studentInfoArray
     }
-    
-    //Students.studentInfoArray
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(locationInfo, "hi")
+
         
         // The tableview cell class and its reuse identifier name
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: tableCell)

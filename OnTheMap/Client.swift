@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import MapKit
 
 class Client: NSObject {
+    
+    // empty var for placemark on addpin viewcontroller
+    var inputPlacemark: MKPlacemark?
     
     // initializers
     override init() {
