@@ -12,6 +12,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     @IBOutlet weak var refresh: UIBarButtonItem!
+    @IBOutlet weak var logOut: UIBarButtonItem!
     
     @IBAction func refreshButton(sender: UIBarButtonItem) {
         refreshSelectedViewController()
@@ -28,4 +29,8 @@ class TabBarController: UITabBarController {
             print("Not able to refresh at this time")
         }
     }
-}
+    
+    @IBAction func logMeOut(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }

@@ -31,6 +31,8 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
         self.mapView.addAnnotation(Client.sharedInstance().inputPlacemark!)
     }
     
+    
+    
     // When enter is clicked, keyboard toggles down
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -41,10 +43,19 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     func textFieldDidBeginEditing(textField: UITextField) {
         textField.text = ""
     }
+    
+    
 
     // cancels pop over and goes back to the map/list view
     @IBAction func cancel() {
         self.presentingViewController!.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        guard let webLink = textField.text where addLink != "" else {
+            print("You have not typed in a web address")
+            return
+        }
     }
     
 }

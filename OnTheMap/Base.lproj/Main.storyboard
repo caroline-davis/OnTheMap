@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -264,18 +265,25 @@
             <objects>
                 <tabBarController restorationIdentifier="TabBarController" storyboardIdentifier="TabBarController" id="owz-dg-yuP" customClass="TabBarController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="guB-6P-Nia">
-                        <barButtonItem key="leftBarButtonItem" image="PinIcon" id="VPx-AY-kVV">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="UKX-5v-vZ8">
                             <connections>
-                                <segue destination="RqF-bE-zjx" kind="popoverPresentation" popoverAnchorBarButtonItem="VPx-AY-kVV" id="IZ9-aI-yae">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <action selector="logMeOut:" destination="owz-dg-yuP" id="IPh-2u-kkv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="5Di-Cc-0Fq">
-                            <connections>
-                                <action selector="refreshButton:" destination="owz-dg-yuP" id="IrB-Zh-A24"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="PinIcon" id="VPx-AY-kVV">
+                                <connections>
+                                    <segue destination="RqF-bE-zjx" kind="popoverPresentation" popoverAnchorBarButtonItem="VPx-AY-kVV" id="IZ9-aI-yae">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="5Di-Cc-0Fq">
+                                <connections>
+                                    <action selector="refreshButton:" destination="owz-dg-yuP" id="IrB-Zh-A24"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7Bh-3P-9wY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -283,6 +291,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="logOut" destination="UKX-5v-vZ8" id="AzB-Y9-8Sw"/>
                         <outlet property="refresh" destination="5Di-Cc-0Fq" id="Cid-Aa-jyL"/>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="dlE-bu-eTo"/>
                         <segue destination="QRS-Xv-M5c" kind="relationship" relationship="viewControllers" id="oMF-ed-V1Q"/>
