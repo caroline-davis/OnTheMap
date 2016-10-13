@@ -21,6 +21,7 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var enterLocation: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var errorMessage: UILabel!
     
     
     // Text field turns blank when user clicks on it
@@ -28,10 +29,12 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
         textField.text = ""
     }
     
+    
     // Saved text from input in variable location
     func textFieldDidEndEditing(textField: UITextField) {
         guard let locationEntry = textField.text where locationEntry != "" else {
             print("You have not typed in a location")
+            errorMessage.text = "Please type in a location"
             return
         }
         self.findLocation(locationEntry, sender: activityIndicator)
@@ -50,7 +53,10 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
                 Client.sharedInstance().inputPlacemark = placemark
                 self.activityIndicator.stopAnimating()
                 self.clickDone(self.pinOnMap)
-                
+            } else {
+                self.errorMessage.text = "Geocoding could not be completed"
+                self.activityIndicator.stopAnimating()
+            
             }
             
         }
@@ -81,6 +87,7 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func clickFindOnMap (sender: UIButton!) {
         guard let locationEntry = self.enterLocation.text where locationEntry != "" else {
             print("You have not typed in a location")
+            errorMessage.text = "Please type in a location"
             return
         }
         print(locationEntry)
