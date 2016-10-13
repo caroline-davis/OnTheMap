@@ -139,6 +139,61 @@ class Client: NSObject {
         completionHandlerForConvertData(result: parsedResult, error: nil)
     }
     
+    func taskToDeleteSession(completionHandlerForDELETE: (success: Bool, errorString: String?) -> Void) {
+        
+        
+         /* 2/3. Build the URL, Configure the request */
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
+        request.HTTPMethod = "DELETE"
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = NSURLSession.sharedSession()
+        
+         /* 4. Make the request */
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+          
+                
+            func sendError(error: String) {
+                print(error)
+                completionHandlerForDELETE(success: false, errorString: error)
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                sendError("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            print(data)
+            
+            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
+            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            
+            completionHandlerForDELETE(success: true, errorString: nil)
+        }
+        task.resume()
+    }
+    
+    
+    
+    
     // shared instance singleton
     class func sharedInstance() -> Client {
         struct Singleton {
@@ -146,6 +201,8 @@ class Client: NSObject {
         }
         return Singleton.sharedInstance
     }
+    
+    
     
 }
 

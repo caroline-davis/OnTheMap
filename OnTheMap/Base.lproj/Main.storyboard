@@ -176,6 +176,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lpH-1z-MvT">
+                                <rect key="frame" x="290" y="462" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -187,10 +190,12 @@
                             <constraint firstItem="bVD-2r-j2o" firstAttribute="centerX" secondItem="ouj-fr-GUD" secondAttribute="centerX" id="OC4-TK-ct1"/>
                             <constraint firstItem="jaL-z8-COE" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="afT-cB-73i"/>
                             <constraint firstItem="ouj-fr-GUD" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="ajz-At-Cbu"/>
+                            <constraint firstItem="lpH-1z-MvT" firstAttribute="top" secondItem="Uii-wN-BSS" secondAttribute="bottom" constant="52" id="hUQ-gt-Rn8"/>
                             <constraint firstItem="bVD-2r-j2o" firstAttribute="top" secondItem="ouj-fr-GUD" secondAttribute="bottom" constant="106" id="xdC-m9-TJC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="lpH-1z-MvT" id="tCO-2N-091"/>
                         <outlet property="cancelButton" destination="Ygs-E6-o29" id="Yjr-Na-bzM"/>
                         <outlet property="enterLocation" destination="bVD-2r-j2o" id="gBx-m3-K9S"/>
                         <outlet property="pinOnMap" destination="Uii-wN-BSS" id="J9l-UI-51t"/>
@@ -273,9 +278,7 @@
                         <rightBarButtonItems>
                             <barButtonItem image="PinIcon" id="VPx-AY-kVV">
                                 <connections>
-                                    <segue destination="RqF-bE-zjx" kind="popoverPresentation" popoverAnchorBarButtonItem="VPx-AY-kVV" id="IZ9-aI-yae">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="RqF-bE-zjx" kind="presentation" id="IZ9-aI-yae"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="5Di-Cc-0Fq">

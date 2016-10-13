@@ -14,11 +14,13 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.enterLocation.delegate = self
+        activityIndicator.hidesWhenStopped = true
     }
     
     @IBOutlet weak var pinOnMap: UIButton!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var enterLocation: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     // Text field turns blank when user clicks on it
@@ -32,12 +34,13 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
             print("You have not typed in a location")
             return
         }
-        self.findLocation(locationEntry)
+        self.findLocation(locationEntry, sender: activityIndicator)
     }
     
     // Changes user input string into long/lat location. Saves this placemark to the shared
     // instance file & calls the segue
-    func findLocation(location: String) {
+    func findLocation(location: String, sender: AnyObject) {
+        activityIndicator.startAnimating()
         let geocoder: CLGeocoder = CLGeocoder()
         geocoder.geocodeAddressString(location) { (placemarks, errorString) in
             if (placemarks?.count > 0) {
@@ -45,6 +48,7 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
                 let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
                 
                 Client.sharedInstance().inputPlacemark = placemark
+                self.activityIndicator.stopAnimating()
                 self.clickDone(self.pinOnMap)
                 
             }
@@ -80,7 +84,7 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
             return
         }
         print(locationEntry)
-        self.findLocation(locationEntry)
+        self.findLocation(locationEntry, sender: activityIndicator)
         }
     
     // cancel func button on nav bar
