@@ -35,6 +35,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+    
+    
         
         // Getting data for locations
         Client.sharedInstance().getStudentLocation() { (result, error) in
@@ -74,7 +76,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     annotations.append(annotation)
                     
                 } else {
-                    print("No pin can be placed as the longitude or latitude data has not been given")
+                    Client.sharedInstance().alertMessage("No pin can be placed as the longitude or latitude data have not been given", sender: self)
                 }
                 
             }

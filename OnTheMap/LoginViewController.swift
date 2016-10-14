@@ -13,8 +13,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var login: UIButton!
-    @IBOutlet weak var debugError: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if success {
                         self.completeLogin()
                     } else {
-                        self.displayError(errorString)
                         Client.sharedInstance().alertMessage(errorString!, sender: self)
                     }
                 }
@@ -36,17 +33,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     
     private func completeLogin() {
-        debugError.text = ""
         let controller = storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
         presentViewController(controller, animated: true, completion: nil)
     }
     
-    // if the username or password is incorrect the error comes up
-    private func displayError(errorString: String?) {
-        if let errorString = errorString {
-            debugError.text = errorString
-        }
-    }
     
     // When enter is clicked, keyboard toggles down
     func textFieldShouldReturn(textField: UITextField) -> Bool {

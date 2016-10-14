@@ -14,7 +14,7 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addLink: UITextField!
-    @IBOutlet weak var errorMessage: UILabel!
+
     
     
     
@@ -34,7 +34,6 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     }
     
     
-    
     // When enter is clicked, keyboard toggles down
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -49,8 +48,7 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     // Saved text from user input link
     func textFieldDidEndEditing(textField: UITextField) {
         guard let webLink = textField.text where addLink != "" else {
-            print("You have not typed in a web address")
-            errorMessage.text = "Please add a link"
+            Client.sharedInstance().alertMessage("Please add a link", sender: self)
             return
         }
     }

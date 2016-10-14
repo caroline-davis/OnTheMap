@@ -16,7 +16,7 @@ extension Client {
         
         let u = "caroline_davis@live.com"
         let p = "Rainbow_1"
-        let body = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
+        let body = "{\"udacity\": {\"username\": \"\(u)\", \"password\": \"\(p)\"}}"
         let url = "\(URLs.authorizationURL)\(Methods.session)"
         
         taskForPostMethod(url, body: body) { (success, errorString) in

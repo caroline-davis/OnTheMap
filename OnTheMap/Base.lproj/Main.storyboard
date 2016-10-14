@@ -45,12 +45,6 @@
                                     <action selector="clickedLogin:" destination="xy9-Sj-2TG" eventType="touchUpInside" id="kna-c7-GXX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT5-LR-e1w">
-                                <rect key="frame" x="272" y="508" width="58" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Login To Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cph-AR-Fyg">
                                 <rect key="frame" x="0.0" y="128" width="600" height="28"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
@@ -64,14 +58,12 @@
                             <constraint firstItem="F5b-Sl-YPd" firstAttribute="centerX" secondItem="faJ-It-HtH" secondAttribute="centerX" id="Euc-2Z-Hjy"/>
                             <constraint firstItem="faJ-It-HtH" firstAttribute="centerX" secondItem="cph-AR-Fyg" secondAttribute="centerX" id="HdU-OK-Aos"/>
                             <constraint firstItem="F5b-Sl-YPd" firstAttribute="top" secondItem="faJ-It-HtH" secondAttribute="bottom" constant="27" id="SLG-Gw-GoB"/>
-                            <constraint firstItem="cT5-LR-e1w" firstAttribute="centerX" secondItem="FST-59-KDX" secondAttribute="centerX" id="dLo-E5-gwB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cph-AR-Fyg" secondAttribute="trailing" constant="-20" id="xJO-xU-TL5"/>
                             <constraint firstItem="cph-AR-Fyg" firstAttribute="leading" secondItem="uYv-L6-pIl" secondAttribute="leadingMargin" constant="-20" id="zJy-CW-JrW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X0n-TS-9BJ"/>
                     <connections>
-                        <outlet property="debugError" destination="cT5-LR-e1w" id="sEj-09-f0w"/>
                         <outlet property="login" destination="FST-59-KDX" id="2R7-ah-tiR"/>
                         <outlet property="password" destination="F5b-Sl-YPd" id="i67-fr-kdi"/>
                         <outlet property="username" destination="faJ-It-HtH" id="BdG-PQ-Guu"/>
@@ -179,12 +171,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lpH-1z-MvT">
                                 <rect key="frame" x="290" y="411" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZt-Et-yiI">
-                                <rect key="frame" x="0.0" y="470" width="600" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -195,11 +181,9 @@
                             <constraint firstItem="Uii-wN-BSS" firstAttribute="trailing" secondItem="bVD-2r-j2o" secondAttribute="trailing" id="IvU-xm-fp6"/>
                             <constraint firstItem="lpH-1z-MvT" firstAttribute="centerX" secondItem="Uii-wN-BSS" secondAttribute="centerX" id="NQi-73-P9p"/>
                             <constraint firstItem="bVD-2r-j2o" firstAttribute="centerX" secondItem="ouj-fr-GUD" secondAttribute="centerX" id="OC4-TK-ct1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QZt-Et-yiI" secondAttribute="trailing" constant="-20" id="UzO-Ad-SHR"/>
                             <constraint firstItem="jaL-z8-COE" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="afT-cB-73i"/>
                             <constraint firstItem="ouj-fr-GUD" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="ajz-At-Cbu"/>
                             <constraint firstItem="lpH-1z-MvT" firstAttribute="top" secondItem="Uii-wN-BSS" secondAttribute="bottom" constant="52" id="hUQ-gt-Rn8"/>
-                            <constraint firstItem="QZt-Et-yiI" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="sP4-ow-t2k"/>
                             <constraint firstItem="bVD-2r-j2o" firstAttribute="top" secondItem="ouj-fr-GUD" secondAttribute="bottom" constant="106" id="xdC-m9-TJC"/>
                         </constraints>
                     </view>
@@ -207,7 +191,6 @@
                         <outlet property="activityIndicator" destination="lpH-1z-MvT" id="tCO-2N-091"/>
                         <outlet property="cancelButton" destination="Ygs-E6-o29" id="Yjr-Na-bzM"/>
                         <outlet property="enterLocation" destination="bVD-2r-j2o" id="gBx-m3-K9S"/>
-                        <outlet property="errorMessage" destination="QZt-Et-yiI" id="4xq-9V-kH6"/>
                         <outlet property="pinOnMap" destination="Uii-wN-BSS" id="J9l-UI-51t"/>
                         <segue destination="h6V-j2-NV7" kind="show" identifier="findOnMap" id="p9f-U7-rz1"/>
                     </connections>
@@ -251,13 +234,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCk-SN-fZJ">
-                                <rect key="frame" x="309" y="218" width="0.0" height="0.0"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -275,7 +251,6 @@
                     <connections>
                         <outlet property="addLink" destination="rzQ-MO-N95" id="FIi-tn-bIf"/>
                         <outlet property="cancelButton" destination="R31-v4-kXN" id="VDb-M6-Bbp"/>
-                        <outlet property="errorMessage" destination="vCk-SN-fZJ" id="hO5-y3-TtR"/>
                         <outlet property="mapView" destination="CkD-PK-1zB" id="Ggg-6U-W7T"/>
                     </connections>
                 </viewController>
