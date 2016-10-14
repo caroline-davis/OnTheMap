@@ -12,17 +12,11 @@ import UIKit
 extension Client {
     
     func postSessionID(username: String, password: String, completionHandlerForAuth: (success: Bool, errorString: String?) -> Void) {
-        
-        // Uncomment this when you can to use values you have typed into the login
-        //if (username && password) {
-        // put the rest of the code from line 23 onwards in here
-        //} else {
-        //completionHandlerForAuth(success: false, errorString: "Please enter a username and password")
-        //}
+
         
         let u = "caroline_davis@live.com"
         let p = "Rainbow_1"
-        let body = "{\"udacity\": {\"username\": \"\(u)\", \"password\": \"\(p)\"}}"
+        let body = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
         let url = "\(URLs.authorizationURL)\(Methods.session)"
         
         taskForPostMethod(url, body: body) { (success, errorString) in

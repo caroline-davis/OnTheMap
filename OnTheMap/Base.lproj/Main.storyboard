@@ -193,6 +193,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jaL-z8-COE" secondAttribute="trailing" constant="-20" id="Cc3-Yf-0ai"/>
                             <constraint firstItem="Uii-wN-BSS" firstAttribute="centerX" secondItem="bVD-2r-j2o" secondAttribute="centerX" id="FRT-Le-hPo"/>
                             <constraint firstItem="Uii-wN-BSS" firstAttribute="trailing" secondItem="bVD-2r-j2o" secondAttribute="trailing" id="IvU-xm-fp6"/>
+                            <constraint firstItem="lpH-1z-MvT" firstAttribute="centerX" secondItem="Uii-wN-BSS" secondAttribute="centerX" id="NQi-73-P9p"/>
                             <constraint firstItem="bVD-2r-j2o" firstAttribute="centerX" secondItem="ouj-fr-GUD" secondAttribute="centerX" id="OC4-TK-ct1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QZt-Et-yiI" secondAttribute="trailing" constant="-20" id="UzO-Ad-SHR"/>
                             <constraint firstItem="jaL-z8-COE" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="afT-cB-73i"/>
@@ -230,7 +231,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CkD-PK-1zB">
                                 <rect key="frame" x="0.0" y="264" width="600" height="336"/>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter a link to share here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzQ-MO-N95">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a link to share here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzQ-MO-N95">
                                 <rect key="frame" x="194" y="158" width="188" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="188" id="ZCU-xG-epa"/>
@@ -250,6 +251,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCk-SN-fZJ">
+                                <rect key="frame" x="309" y="218" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -267,6 +275,7 @@
                     <connections>
                         <outlet property="addLink" destination="rzQ-MO-N95" id="FIi-tn-bIf"/>
                         <outlet property="cancelButton" destination="R31-v4-kXN" id="VDb-M6-Bbp"/>
+                        <outlet property="errorMessage" destination="vCk-SN-fZJ" id="hO5-y3-TtR"/>
                         <outlet property="mapView" destination="CkD-PK-1zB" id="Ggg-6U-W7T"/>
                     </connections>
                 </viewController>

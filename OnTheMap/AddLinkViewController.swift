@@ -14,6 +14,8 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addLink: UITextField!
+    @IBOutlet weak var errorMessage: UILabel!
+    
     
     
     override func viewDidLoad() {
@@ -44,18 +46,19 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
         textField.text = ""
     }
     
+    // Saved text from user input link
+    func textFieldDidEndEditing(textField: UITextField) {
+        guard let webLink = textField.text where addLink != "" else {
+            print("You have not typed in a web address")
+            errorMessage.text = "Please add a link"
+            return
+        }
+    }
     
 
     // cancels pop over and goes back to the map/list view
     @IBAction func cancel() {
         self.presentingViewController!.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        guard let webLink = textField.text where addLink != "" else {
-            print("You have not typed in a web address")
-            return
-        }
     }
     
 }
