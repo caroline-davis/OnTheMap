@@ -191,6 +191,24 @@ class Client: NSObject {
         task.resume()
     }
     
+    // alert message pop ups
+    func alertMessage(errorMessage: String, sender: AnyObject) {
+        
+        let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            print("Cancel")
+        }
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            
+            guard result != false else {
+                print("OK")
+                return
+            }
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        sender.presentViewController(alertController, animated: true, completion: nil)
+    }
     
     
     

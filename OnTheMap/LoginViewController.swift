@@ -16,28 +16,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var debugError: UILabel!
     
     
-    func alertMessage(errorMessage:String) {
-    
-    let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
-    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-        print("Cancel")
-    }
-    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-        
-        guard result != false else {
-        print("OK")
-        return
-            }
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.username.delegate = self
@@ -51,7 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.completeLogin()
                     } else {
                         self.displayError(errorString)
-                        self.alertMessage(errorString!)
+                        Client.sharedInstance().alertMessage(errorString!, sender: self)
                     }
                 }
             }
