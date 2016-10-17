@@ -77,8 +77,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     
                 } else {
                     Client.sharedInstance().alertMessage("No pin can be placed as the longitude or latitude data have not been given", sender: self)
-                }
-                
+                }                
             }
             
             // When the array is complete, we add the annotations to the map.

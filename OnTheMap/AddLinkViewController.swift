@@ -14,9 +14,7 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addLink: UITextField!
-
-    
-    
+    @IBOutlet weak var submit: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +40,7 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     
     // Text field turns blank when user clicks on it
     func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
+        textField.text = "https://www."
     }
     
     // Saved text from user input link
@@ -53,6 +51,20 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
         }
     }
     
+    @IBAction func pressSumbit (sender: AnyObject) {
+        Client.sharedInstance().postStudentLocation() { (success, errorString) in
+            performUIUpdatesOnMain() {
+                if success {
+                    print(success)
+                } else {
+                    Client.sharedInstance().alertMessage(errorString!, sender: self)
+                }
+            }
+        }
+    }
+
+    
+
 
     // cancels pop over and goes back to the map/list view
     @IBAction func cancel() {

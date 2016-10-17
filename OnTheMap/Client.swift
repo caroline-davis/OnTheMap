@@ -14,6 +14,9 @@ class Client: NSObject {
     // empty var for placemark on addpin viewcontroller
     var inputPlacemark: MKPlacemark?
     
+    // empty var for users unique key
+    var user:[String:AnyObject]?
+    
     // initializers
     override init() {
         super.init()
@@ -70,10 +73,14 @@ class Client: NSObject {
     }
 
     
-    func taskForPostMethod(url: String, body: String, completionHandlerForPOST: (success: Bool, errorString: String?) -> Void) {
+    func taskForPostMethod(url: String, headers: [[String:String]], body: String, completionHandlerForPOST: (success: Bool, errorString: String?, parsedResult: AnyObject? ) -> Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        for header in headers {
+            for (key, value) in header {
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
         // create network request
@@ -82,7 +89,7 @@ class Client: NSObject {
             
             func sendError(error: String) {
                 print(error)
-                completionHandlerForPOST(success: false, errorString: error)
+                completionHandlerForPOST(success: false, errorString: error, parsedResult: nil)
             }
             
             /* GUARD: Was there an error? */
@@ -100,7 +107,7 @@ class Client: NSObject {
                     sendError("Your request returned a status code other than 2xx!")
                 }
                 return
-            }
+            } 
             
             /* GUARD: Was there any data returned? */
             guard let data = data else {
@@ -115,14 +122,15 @@ class Client: NSObject {
                 parsedResult = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
             } catch {
                 let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(newData)'"]
-                completionHandlerForPOST(success: false, errorString: String(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
+                completionHandlerForPOST(success: false, errorString: String(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo), parsedResult: nil)
             }
-            // else call the function
-            completionHandlerForPOST(success: true, errorString: nil)
             
+            // else call the function
+            completionHandlerForPOST(success: true, errorString: nil, parsedResult: parsedResult)
             
         }
         task.resume()
+
     }
     
     // given raw JSON, return a usable Foundation object

@@ -234,6 +234,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0H-TZ-tO8">
+                                <rect key="frame" x="264" y="217" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="pressSumbit:" destination="h6V-j2-NV7" eventType="touchUpInside" id="3gJ-Rk-TTL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -252,6 +259,7 @@
                         <outlet property="addLink" destination="rzQ-MO-N95" id="FIi-tn-bIf"/>
                         <outlet property="cancelButton" destination="R31-v4-kXN" id="VDb-M6-Bbp"/>
                         <outlet property="mapView" destination="CkD-PK-1zB" id="Ggg-6U-W7T"/>
+                        <outlet property="submit" destination="j0H-TZ-tO8" id="QQJ-sl-zau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALb-is-ncc" userLabel="First Responder" sceneMemberID="firstResponder"/>
