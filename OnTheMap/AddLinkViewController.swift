@@ -52,7 +52,8 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     }
     
     @IBAction func pressSumbit (sender: AnyObject) {
-        Client.sharedInstance().postStudentLocation() { (success, errorString) in
+        var webLink = addLink.text
+        Client.sharedInstance().postStudentLocation(webLink!) { (success, errorString) in
             performUIUpdatesOnMain() {
                 if success {
                     print(success)

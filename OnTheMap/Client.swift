@@ -15,7 +15,10 @@ class Client: NSObject {
     var inputPlacemark: MKPlacemark?
     
     // empty var for users unique key
-    var user:[String:AnyObject]?
+    var user = [String:AnyObject]()
+    
+    // empty var for users study location
+    var studentLocation: String?
     
     // initializers
     override init() {
@@ -25,8 +28,7 @@ class Client: NSObject {
     func taskForGETMethod(url: String, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* 1. Set the parameters */
-     //   var parametersWithApiKey = parameters
-   //     parametersWithApiKey[ParameterKeys.ApiKey] = Constants.ApiKey
+
         
         /* 2/3. Build the URL, Configure the request */
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)

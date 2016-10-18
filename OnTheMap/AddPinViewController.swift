@@ -41,6 +41,7 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
     // Changes user input string into long/lat location. Saves this placemark to the shared
     // instance file & calls the segue
     func findLocation(location: String, sender: AnyObject) {
+        Client.sharedInstance().studentLocation = location
         activityIndicator.startAnimating()
         let geocoder: CLGeocoder = CLGeocoder()
         geocoder.geocodeAddressString(location) { (placemarks, errorString) in
