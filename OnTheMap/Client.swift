@@ -20,20 +20,33 @@ class Client: NSObject {
     // empty var for users study location
     var studentLocation: String?
     
+    // empty var for users first name
+    var studentFirstName: AnyObject?
+    
+    // empty var for users last name
+    var studentLastName: AnyObject?
+    
     // initializers
     override init() {
         super.init()
     }
         // adding parameters: method: String and parameters: [String:AnyObject]
-    func taskForGETMethod(url: String, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGETMethod(url: String, headers: [[String:String]]?, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* 1. Set the parameters */
-
-        
+    
+ 
         /* 2/3. Build the URL, Configure the request */
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        if (headers != nil) {
+            for header in headers! {
+                for (key, value) in header {
+                    request.addValue(value, forHTTPHeaderField: key)
+                }
+            }
+        }
+        
+        
         let session = NSURLSession.sharedSession()
 
         
@@ -63,7 +76,7 @@ class Client: NSObject {
                 sendError("No data was returned by the request!")
                 return
             }
-            
+
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
         }
@@ -135,6 +148,54 @@ class Client: NSObject {
 
     }
     
+    func taskForGETProfile(url: String, completionHandlerForGET: (data: AnyObject?, response: AnyObject?, error: NSError?) -> Void) {
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            
+            
+            func sendError(error: String) {
+                print(error)
+                let userInfo = [NSLocalizedDescriptionKey : error]
+                completionHandlerForGET(data: false, response: false, error: NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                sendError("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                let code = (response as? NSHTTPURLResponse)?.statusCode
+                if code == 403 {
+                    sendError("Your username or password is incorrect")
+                } else {
+                    sendError("Your request returned a status code other than 2xx!")
+                }
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            var parsedResult: AnyObject!
+            do {
+                parsedResult = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
+            } catch {
+                print(parsedResult)
+            }
+            completionHandlerForGET(data: parsedResult, response: true, error: nil)
+        }
+         task.resume()
+    }
+    
+    
     // given raw JSON, return a usable Foundation object
     private func convertDataWithCompletionHandler(data: NSData, completionHandlerForConvertData: (result: AnyObject!, error: NSError?) -> Void) {
         
@@ -145,6 +206,7 @@ class Client: NSObject {
             let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
             completionHandlerForConvertData(result: nil, error: NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
+
         
         completionHandlerForConvertData(result: parsedResult, error: nil)
     }
