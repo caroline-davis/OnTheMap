@@ -57,10 +57,7 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
                 self.activityIndicator.stopAnimating()
             
             }
-            
         }
-
-        
     }
     
     
@@ -88,7 +85,6 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
            Client.sharedInstance().alertMessage("Please type in a location", sender: self)
             return
         }
-        print(locationEntry)
         self.findLocation(locationEntry, sender: activityIndicator)
         }
     
@@ -96,8 +92,5 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func cancel() {
         self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
         }
-
-
-
     
 }

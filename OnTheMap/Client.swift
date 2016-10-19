@@ -88,7 +88,7 @@ class Client: NSObject {
     }
 
     
-    func taskForPostMethod(url: String, headers: [[String:String]], body: String, completionHandlerForPOST: (success: Bool, errorString: String?, parsedResult: AnyObject? ) -> Void) {
+    func taskForPostMethod(url: String, headers: [[String:String]], body: String, URLType: String, completionHandlerForPOST: (success: Bool, errorString: String?, parsedResult: AnyObject? ) -> Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.HTTPMethod = "POST"
         for header in headers {
@@ -129,12 +129,18 @@ class Client: NSObject {
                 sendError("No data was returned by the request!")
                 return
             }
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            var newData: NSData?
+            if URLType == "Udacity" {
+                newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            } else {
+                newData = data
+                
+            }
             
             // parse the data
             var parsedResult: AnyObject!
             do {
-                parsedResult = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
+                parsedResult = try NSJSONSerialization.JSONObjectWithData(newData!, options: .AllowFragments)
             } catch {
                 let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(newData)'"]
                 completionHandlerForPOST(success: false, errorString: String(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo), parsedResult: nil)
@@ -157,7 +163,7 @@ class Client: NSObject {
             func sendError(error: String) {
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
-                completionHandlerForGET(data: false, response: false, error: NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
+                completionHandlerForGET(data: nil, response: nil, error: NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
             }
             
             /* GUARD: Was there an error? */
@@ -229,7 +235,6 @@ class Client: NSObject {
         
          /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) { data, response, error in
-          
                 
             func sendError(error: String) {
                 print(error)

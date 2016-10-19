@@ -21,20 +21,13 @@ extension Client {
         let url = "\(URLs.authorizationURL)\(Methods.session)"
     
         
-        taskForPostMethod(url, headers: [["Accept":"application/json"]], body: body) { (success, errorString, parsedResult) in
+        taskForPostMethod(url, headers: [["Accept":"application/json"]], body: body, URLType: "Udacity") { (success, errorString, parsedResult) in
             if let resultHere = parsedResult?["account"] {
                 if let accountKey = resultHere?["key"] {
                     self.user["uniqueKey"] = accountKey
                 }
                 self.getStudentName() { (data, response, error) in
-                 //   if let user = data!["user"] {
-                   //     if let firstName = user!["first_name"] {
-                  //          self.user["firstName"] = firstName
-                    //        if let lastName = user!["last_name"] {
-                        //        self.user["lastName"] = lastName
-                     //       }
-                      //  }
-                   // }
+            
                 }
             }
             completionHandlerForAuth(success: success, errorString: errorString)
@@ -90,14 +83,14 @@ extension Client {
         let firstName = Client.sharedInstance().studentFirstName!
         
         let body = "{\"uniqueKey\": \"\(accountK)\", \"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\",\"mapString\": \"\(mapStringLocation)\", \"mediaURL\": \"\(mediaURL)\", \"latitude\": \(lat), \"longitude\": \(long)}"
-        print(body)
+
         let url = "\(URLs.parseURL)"
         let headers = [
             ["X-Parse-Application-Id":"QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"],
             ["X-Parse-REST-API-Key":"QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"]
         ]
 
-        taskForPostMethod(url, headers: headers, body: body) { (success, errorString, parsedResult) in
+        taskForPostMethod(url, headers: headers, body: body, URLType: "Parse") { (success, errorString, parsedResult) in
             completionHandlerForAuth(success: success, errorString: errorString)
         }
     }

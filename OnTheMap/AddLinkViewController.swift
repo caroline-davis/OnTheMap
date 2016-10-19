@@ -64,7 +64,6 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
         }
     }
 
-    
 
 
     // cancels pop over and goes back to the map/list view
