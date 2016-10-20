@@ -57,6 +57,8 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
             performUIUpdatesOnMain() {
                 if success {
                     print(success)
+                    let controller = self.storyboard?.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
+                    self.presentViewController(controller, animated: true, completion: nil)
                 } else {
                     Client.sharedInstance().alertMessage(errorString!, sender: self)
                 }

@@ -27,14 +27,6 @@
                                     <outlet property="delegate" destination="xy9-Sj-2TG" id="b6e-gR-hMk"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F5b-Sl-YPd">
-                                <rect key="frame" x="132" y="374" width="336" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="xy9-Sj-2TG" id="Wgn-GU-Tgo"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FST-59-KDX">
                                 <rect key="frame" x="272" y="451" width="56" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="21"/>
@@ -51,6 +43,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F5b-Sl-YPd">
+                                <rect key="frame" x="132" y="373" width="336" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xy9-Sj-2TG" id="Wgn-GU-Tgo"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -211,16 +211,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CkD-PK-1zB">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CkD-PK-1zB">
                                 <rect key="frame" x="0.0" y="264" width="600" height="336"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="336" id="K7N-vG-Jnb"/>
+                                </constraints>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a link to share here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzQ-MO-N95">
-                                <rect key="frame" x="194" y="158" width="188" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a link to share here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzQ-MO-N95">
+                                <rect key="frame" x="206" y="159" width="188" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="188" id="ZCU-xG-epa"/>
+                                    <constraint firstAttribute="width" constant="188" id="dGQ-CW-EZy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZCU-xG-epa"/>
+                                    </mask>
+                                </variation>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbX-fv-HTe">
                                 <rect key="frame" x="0.0" y="13" width="600" height="44"/>
@@ -234,8 +243,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0H-TZ-tO8">
-                                <rect key="frame" x="264" y="217" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0H-TZ-tO8">
+                                <rect key="frame" x="276" y="217" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="pressSumbit:" destination="h6V-j2-NV7" eventType="touchUpInside" id="3gJ-Rk-TTL"/>
@@ -246,14 +255,27 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="nbX-fv-HTe" secondAttribute="trailing" constant="-20" id="8Ik-bH-vcs"/>
                             <constraint firstItem="nbX-fv-HTe" firstAttribute="centerX" secondItem="rzQ-MO-N95" secondAttribute="centerX" id="8Iy-C2-5kj"/>
+                            <constraint firstItem="CkD-PK-1zB" firstAttribute="top" secondItem="j0H-TZ-tO8" secondAttribute="bottom" constant="17" id="8La-xS-AdI"/>
                             <constraint firstItem="rzQ-MO-N95" firstAttribute="centerX" secondItem="CkD-PK-1zB" secondAttribute="centerX" id="Dhi-4d-C1d"/>
                             <constraint firstItem="hri-Bo-qpx" firstAttribute="top" secondItem="CkD-PK-1zB" secondAttribute="bottom" id="UC9-Vo-keB"/>
                             <constraint firstItem="nbX-fv-HTe" firstAttribute="top" secondItem="YPn-Ho-b8a" secondAttribute="topMargin" constant="13" id="WGY-a2-Ske"/>
                             <constraint firstItem="CkD-PK-1zB" firstAttribute="leading" secondItem="YPn-Ho-b8a" secondAttribute="leadingMargin" constant="-20" id="YJK-gd-7ZQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CkD-PK-1zB" secondAttribute="trailing" constant="-20" id="bzE-E4-vRh"/>
-                            <constraint firstItem="CkD-PK-1zB" firstAttribute="top" secondItem="rzQ-MO-N95" secondAttribute="bottom" constant="76" id="c9S-fm-iYF"/>
+                            <constraint firstItem="CkD-PK-1zB" firstAttribute="top" secondItem="rzQ-MO-N95" secondAttribute="bottom" constant="75" id="c9S-fm-iYF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rzQ-MO-N95" secondAttribute="trailing" constant="198" id="d1q-hC-RUk"/>
+                            <constraint firstItem="nbX-fv-HTe" firstAttribute="leading" secondItem="CkD-PK-1zB" secondAttribute="leading" id="fp3-Vl-eeR"/>
+                            <constraint firstItem="nbX-fv-HTe" firstAttribute="trailing" secondItem="CkD-PK-1zB" secondAttribute="trailing" id="j8Z-1d-cVT"/>
+                            <constraint firstItem="rzQ-MO-N95" firstAttribute="centerX" secondItem="j0H-TZ-tO8" secondAttribute="centerX" id="rVF-4J-cfQ"/>
                             <constraint firstItem="nbX-fv-HTe" firstAttribute="leading" secondItem="YPn-Ho-b8a" secondAttribute="leadingMargin" constant="-20" id="wB4-O6-lam"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8Ik-bH-vcs"/>
+                                <exclude reference="8Iy-C2-5kj"/>
+                                <exclude reference="wB4-O6-lam"/>
+                                <exclude reference="d1q-hC-RUk"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="addLink" destination="rzQ-MO-N95" id="FIi-tn-bIf"/>

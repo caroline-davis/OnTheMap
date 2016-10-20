@@ -33,8 +33,12 @@ class TabBarController: UITabBarController {
     @IBAction func logMeOut(sender: UIBarButtonItem) {
         Client.sharedInstance().taskToDeleteSession() { (success, errorString) in
             if success {
+                print(success)
                 dispatch_async(dispatch_get_main_queue()){
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                  //  let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+                //    self.presentViewController(controller, animated: true, completion: nil)
+
+                    self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
                 }
 
             } else {
