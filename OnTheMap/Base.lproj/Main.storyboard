@@ -157,6 +157,7 @@
                                 <items>
                                     <navigationItem id="2rp-WS-eLm">
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Ygs-E6-o29">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="cancel" destination="RqF-bE-zjx" id="ktd-oh-OvW"/>
                                             </connections>
@@ -243,6 +244,7 @@
                                 <items>
                                     <navigationItem id="vm3-dQ-VMn">
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="R31-v4-kXN">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="cancel" destination="h6V-j2-NV7" id="aTw-Go-ZZF"/>
                                             </connections>
@@ -299,17 +301,20 @@
                 <tabBarController restorationIdentifier="TabBarController" storyboardIdentifier="TabBarController" id="owz-dg-yuP" customClass="TabBarController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="guB-6P-Nia">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="UKX-5v-vZ8">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="logMeOut:" destination="owz-dg-yuP" id="IPh-2u-kkv"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="PinIcon" id="VPx-AY-kVV">
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="RqF-bE-zjx" kind="presentation" id="IZ9-aI-yae"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="5Di-Cc-0Fq">
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="refreshButton:" destination="owz-dg-yuP" id="IrB-Zh-A24"/>
                                 </connections>
@@ -367,4 +372,5 @@
         <image name="MapIcon" width="32" height="32"/>
         <image name="PinIcon" width="32" height="32"/>
     </resources>
+    <color key="tintColor" red="0.14822214841842651" green="0.87489861249923706" blue="0.93948811292648315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

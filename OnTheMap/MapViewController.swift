@@ -43,7 +43,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func loadStudents() {
         // Getting data for locations
-        Client.sharedInstance().getStudentLocation() { (result, error) in
+        Client.sharedInstance().getStudentLocation(self) { (result, error) in
             
             if result != nil {
             }

@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func clickedLogin(sender: AnyObject) {
-        Client.sharedInstance().postSessionID(self.username.text!, password: self.password.text!) { (success, errorString) in
+        Client.sharedInstance().postSessionID(self, username: self.username.text!, password: self.password.text!) { (success, errorString) in
                 performUIUpdatesOnMain() {
                     if success {
                         self.completeLogin()

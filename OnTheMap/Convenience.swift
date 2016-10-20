@@ -13,7 +13,7 @@ import MapKit
 extension Client {
     
     
-    func postSessionID(username: String, password: String, completionHandlerForAuth: (success: Bool, errorString: String?) -> Void) {
+    func postSessionID(sender: AnyObject, username: String, password: String, completionHandlerForAuth: (success: Bool, errorString: String?) -> Void) {
         
         let u = "caroline_davis@live.com"
         let p = "Rainbow_1"
@@ -26,16 +26,14 @@ extension Client {
                 if let accountKey = resultHere?["key"] {
                     self.user["uniqueKey"] = accountKey
                 }
-                self.getStudentName() { (data, response, error) in
-            
-                }
+                self.getStudentName(sender)
             }
             completionHandlerForAuth(success: success, errorString: errorString)
         }
     }
     
     
-    func getStudentLocation(completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) {
+    func getStudentLocation(sender: AnyObject, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) {
         
         let url = URLs.parseURL
         let headers = [
@@ -43,7 +41,10 @@ extension Client {
             ["X-Parse-REST-API-Key":"QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"]
         ]
         taskForGETMethod(url, headers: headers ) { (result, error) in
-            
+            guard (error == nil) else {
+                self.alertMessage("Unable to connect to the internet", sender: sender)
+                return
+            }
             
             if let students = result["results"] as? [AnyObject] {
                 for student in students {
@@ -55,11 +56,15 @@ extension Client {
         }
     }
     
-    func getStudentName(completionHandlerForGET: (data: AnyObject?, response: AnyObject?, error: NSError?) -> Void) {
+    func getStudentName(sender: AnyObject) {
         let accountK = Client.sharedInstance().user["uniqueKey"]!
         let url = "\(URLs.authorizationURL)/users/\(accountK)"
         
         taskForGETProfile(url) { ( data, response, error) in
+            guard (error == nil) else {
+                self.alertMessage("Unable to connect to the internet", sender: sender)
+                return
+            }
             if let user = data!["user"] {
                 if let firstName = user!["first_name"] {
                     self.user["firstName"] = firstName
