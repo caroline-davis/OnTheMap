@@ -102,7 +102,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wsC-T6-DjN">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wsC-T6-DjN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="B3h-qY-GnK"/>
@@ -111,10 +111,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="wsC-T6-DjN" secondAttribute="trailing" constant="-16" id="1ia-sI-B3b"/>
-                            <constraint firstItem="wsC-T6-DjN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="2kr-Hf-K3r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wsC-T6-DjN" secondAttribute="trailing" constant="-20" id="1ia-sI-B3b"/>
+                            <constraint firstItem="wsC-T6-DjN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="2kr-Hf-K3r"/>
                             <constraint firstItem="wsC-T6-DjN" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Q5I-qf-Nz9"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wsC-T6-DjN" secondAttribute="bottom" id="oZl-Al-9Xp"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wsC-T6-DjN" secondAttribute="bottom" constant="-49" id="oZl-Al-9Xp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="mdE-u8-qbK"/>
@@ -138,7 +138,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uii-wN-BSS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uii-wN-BSS">
                                 <rect key="frame" x="245" y="362" width="111" height="30"/>
                                 <state key="normal" title="Find on the map"/>
                                 <connections>
@@ -157,18 +157,18 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouj-fr-GUD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouj-fr-GUD">
                                 <rect key="frame" x="0.0" y="139" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your location here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-2r-j2o">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your location here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-2r-j2o">
                                 <rect key="frame" x="213" y="266" width="175" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lpH-1z-MvT">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lpH-1z-MvT">
                                 <rect key="frame" x="290" y="411" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -178,12 +178,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ouj-fr-GUD" secondAttribute="trailing" constant="-20" id="9gf-cE-nNY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jaL-z8-COE" secondAttribute="trailing" constant="-20" id="Cc3-Yf-0ai"/>
                             <constraint firstItem="Uii-wN-BSS" firstAttribute="centerX" secondItem="bVD-2r-j2o" secondAttribute="centerX" id="FRT-Le-hPo"/>
-                            <constraint firstItem="Uii-wN-BSS" firstAttribute="trailing" secondItem="bVD-2r-j2o" secondAttribute="trailing" id="IvU-xm-fp6"/>
+                            <constraint firstItem="Uii-wN-BSS" firstAttribute="trailing" secondItem="bVD-2r-j2o" secondAttribute="trailing" constant="-32" id="IvU-xm-fp6"/>
                             <constraint firstItem="lpH-1z-MvT" firstAttribute="centerX" secondItem="Uii-wN-BSS" secondAttribute="centerX" id="NQi-73-P9p"/>
                             <constraint firstItem="bVD-2r-j2o" firstAttribute="centerX" secondItem="ouj-fr-GUD" secondAttribute="centerX" id="OC4-TK-ct1"/>
+                            <constraint firstItem="cms-ts-6Ps" firstAttribute="top" secondItem="lpH-1z-MvT" secondAttribute="bottom" constant="169" id="TPa-Uf-6FW"/>
                             <constraint firstItem="jaL-z8-COE" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="afT-cB-73i"/>
                             <constraint firstItem="ouj-fr-GUD" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="ajz-At-Cbu"/>
-                            <constraint firstItem="lpH-1z-MvT" firstAttribute="top" secondItem="Uii-wN-BSS" secondAttribute="bottom" constant="52" id="hUQ-gt-Rn8"/>
+                            <constraint firstItem="Uii-wN-BSS" firstAttribute="top" secondItem="bVD-2r-j2o" secondAttribute="bottom" constant="66" id="dQs-Sa-MHy"/>
+                            <constraint firstItem="lpH-1z-MvT" firstAttribute="top" secondItem="Uii-wN-BSS" secondAttribute="bottom" constant="19" id="hUQ-gt-Rn8"/>
                             <constraint firstItem="bVD-2r-j2o" firstAttribute="top" secondItem="ouj-fr-GUD" secondAttribute="bottom" constant="106" id="xdC-m9-TJC"/>
                         </constraints>
                     </view>
