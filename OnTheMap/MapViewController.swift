@@ -25,7 +25,7 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     func refresh() {
-        mapView.setCenterCoordinate(mapView.userLocation.coordinate, animated: true)
+        self.loadStudents()
     }
     
     // The map. See the setup in the Storyboard file. Note particularly that the view controller
@@ -35,9 +35,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+    }
     
+    override func viewDidAppear(animated: Bool) {
+        self.loadStudents()
+    }
     
-        
+    func loadStudents() {
         // Getting data for locations
         Client.sharedInstance().getStudentLocation() { (result, error) in
             
@@ -77,13 +81,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     
                 } else {
                     Client.sharedInstance().alertMessage("No pin can be placed as the longitude or latitude data have not been given", sender: self)
-                }                
+                }
             }
             
             // When the array is complete, we add the annotations to the map.
-            self.mapView.addAnnotations(annotations)
+            
+            performUIUpdatesOnMain() {
+               self.mapView.addAnnotations(annotations)
+            }
+
         }
-        
     }
     
     // MARK: - MKMapViewDelegate
