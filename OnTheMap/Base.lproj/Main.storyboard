@@ -21,10 +21,12 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="faJ-It-HtH" userLabel="Username">
                                 <rect key="frame" x="132" y="317" width="336" height="30"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="SjP-5Z-8rv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="xy9-Sj-2TG" id="b6e-gR-hMk"/>
@@ -32,7 +34,9 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F5b-Sl-YPd">
                                 <rect key="frame" x="132" y="373" width="336" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="xy9-Sj-2TG" id="Wgn-GU-Tgo"/>
@@ -42,29 +46,29 @@
                                 <rect key="frame" x="273" y="451" width="55" height="41"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="21"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="1" green="0.10418961699471696" blue="0.11417713745554159" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.14822214841842651" green="0.87489861249923706" blue="0.93948811292648315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="clickedLogin:" destination="xy9-Sj-2TG" eventType="touchUpInside" id="kna-c7-GXX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cph-AR-Fyg">
-                                <rect key="frame" x="0.0" y="161" width="600" height="81"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cph-AR-Fyg">
+                                <rect key="frame" x="0.0" y="190" width="600" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="9nG-KP-ZPh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="34"/>
+                                <color key="textColor" red="0.14822214841842651" green="0.87489861249923706" blue="0.93948811292648315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="FST-59-KDX" firstAttribute="centerX" secondItem="F5b-Sl-YPd" secondAttribute="centerX" id="1Ok-nW-OrX"/>
                             <constraint firstItem="faJ-It-HtH" firstAttribute="leading" secondItem="F5b-Sl-YPd" secondAttribute="leading" id="2gI-3X-9yG"/>
-                            <constraint firstItem="cph-AR-Fyg" firstAttribute="top" secondItem="pmm-Cn-DzW" secondAttribute="bottom" constant="141" id="BXk-26-9sw"/>
                             <constraint firstItem="F5b-Sl-YPd" firstAttribute="centerX" secondItem="faJ-It-HtH" secondAttribute="centerX" id="Euc-2Z-Hjy"/>
                             <constraint firstItem="faJ-It-HtH" firstAttribute="centerX" secondItem="cph-AR-Fyg" secondAttribute="centerX" id="HdU-OK-Aos"/>
+                            <constraint firstItem="cph-AR-Fyg" firstAttribute="top" secondItem="pmm-Cn-DzW" secondAttribute="bottom" constant="170" id="OGs-gQ-cP8"/>
                             <constraint firstItem="F5b-Sl-YPd" firstAttribute="top" secondItem="faJ-It-HtH" secondAttribute="bottom" constant="26" id="SLG-Gw-GoB"/>
                             <constraint firstAttribute="bottom" secondItem="F5b-Sl-YPd" secondAttribute="bottom" constant="197" id="i49-JA-l0Y"/>
                             <constraint firstItem="FST-59-KDX" firstAttribute="top" secondItem="F5b-Sl-YPd" secondAttribute="bottom" constant="48" id="t7y-Vs-yGC"/>
@@ -148,13 +152,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uii-wN-BSS">
-                                <rect key="frame" x="245" y="362" width="111" height="30"/>
-                                <state key="normal" title="Find on the map"/>
-                                <connections>
-                                    <action selector="clickFindOnMap:" destination="RqF-bE-zjx" eventType="touchUpInside" id="CE7-MC-ibu"/>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaL-z8-COE">
                                 <rect key="frame" x="0.0" y="14" width="600" height="44"/>
                                 <items>
@@ -167,20 +164,32 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouj-fr-GUD">
-                                <rect key="frame" x="0.0" y="139" width="600" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouj-fr-GUD">
+                                <rect key="frame" x="0.0" y="139" width="600" height="33"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your location here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-2r-j2o">
-                                <rect key="frame" x="213" y="266" width="175" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your location here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-2r-j2o">
+                                <rect key="frame" x="150" y="266" width="300" height="30"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lpH-1z-MvT">
                                 <rect key="frame" x="290" y="411" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uii-wN-BSS">
+                                <rect key="frame" x="225" y="350" width="150" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="19"/>
+                                <state key="normal" title="Find on the map">
+                                    <color key="titleColor" red="0.14822214841842651" green="0.87489861249923706" blue="0.93948811292648315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickFindOnMap:" destination="RqF-bE-zjx" eventType="touchUpInside" id="CE7-MC-ibu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -229,20 +238,6 @@
                                     <constraint firstAttribute="height" constant="336" id="K7N-vG-Jnb"/>
                                 </constraints>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a link to share here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzQ-MO-N95">
-                                <rect key="frame" x="206" y="159" width="188" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="188" id="ZCU-xG-epa"/>
-                                    <constraint firstAttribute="width" constant="188" id="dGQ-CW-EZy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ZCU-xG-epa"/>
-                                    </mask>
-                                </variation>
-                            </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbX-fv-HTe">
                                 <rect key="frame" x="0.0" y="13" width="600" height="44"/>
                                 <items>
@@ -255,39 +250,37 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0H-TZ-tO8">
-                                <rect key="frame" x="276" y="217" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0H-TZ-tO8">
+                                <rect key="frame" x="266" y="215" width="69" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="19"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.14822214841842651" green="0.87489861249923706" blue="0.93948811292648315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressSumbit:" destination="h6V-j2-NV7" eventType="touchUpInside" id="3gJ-Rk-TTL"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a link to share here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzQ-MO-N95">
+                                <rect key="frame" x="150" y="157" width="300" height="30"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="nbX-fv-HTe" secondAttribute="trailing" constant="-20" id="8Ik-bH-vcs"/>
-                            <constraint firstItem="nbX-fv-HTe" firstAttribute="centerX" secondItem="rzQ-MO-N95" secondAttribute="centerX" id="8Iy-C2-5kj"/>
                             <constraint firstItem="CkD-PK-1zB" firstAttribute="top" secondItem="j0H-TZ-tO8" secondAttribute="bottom" constant="17" id="8La-xS-AdI"/>
                             <constraint firstItem="rzQ-MO-N95" firstAttribute="centerX" secondItem="CkD-PK-1zB" secondAttribute="centerX" id="Dhi-4d-C1d"/>
                             <constraint firstItem="hri-Bo-qpx" firstAttribute="top" secondItem="CkD-PK-1zB" secondAttribute="bottom" id="UC9-Vo-keB"/>
                             <constraint firstItem="nbX-fv-HTe" firstAttribute="top" secondItem="YPn-Ho-b8a" secondAttribute="topMargin" constant="13" id="WGY-a2-Ske"/>
                             <constraint firstItem="CkD-PK-1zB" firstAttribute="leading" secondItem="YPn-Ho-b8a" secondAttribute="leadingMargin" constant="-20" id="YJK-gd-7ZQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CkD-PK-1zB" secondAttribute="trailing" constant="-20" id="bzE-E4-vRh"/>
-                            <constraint firstItem="CkD-PK-1zB" firstAttribute="top" secondItem="rzQ-MO-N95" secondAttribute="bottom" constant="75" id="c9S-fm-iYF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rzQ-MO-N95" secondAttribute="trailing" constant="198" id="d1q-hC-RUk"/>
                             <constraint firstItem="nbX-fv-HTe" firstAttribute="leading" secondItem="CkD-PK-1zB" secondAttribute="leading" id="fp3-Vl-eeR"/>
                             <constraint firstItem="nbX-fv-HTe" firstAttribute="trailing" secondItem="CkD-PK-1zB" secondAttribute="trailing" id="j8Z-1d-cVT"/>
+                            <constraint firstItem="CkD-PK-1zB" firstAttribute="top" secondItem="rzQ-MO-N95" secondAttribute="bottom" constant="77" id="jNh-x1-rKU"/>
                             <constraint firstItem="rzQ-MO-N95" firstAttribute="centerX" secondItem="j0H-TZ-tO8" secondAttribute="centerX" id="rVF-4J-cfQ"/>
-                            <constraint firstItem="nbX-fv-HTe" firstAttribute="leading" secondItem="YPn-Ho-b8a" secondAttribute="leadingMargin" constant="-20" id="wB4-O6-lam"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="8Ik-bH-vcs"/>
-                                <exclude reference="8Iy-C2-5kj"/>
-                                <exclude reference="wB4-O6-lam"/>
-                                <exclude reference="d1q-hC-RUk"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="addLink" destination="rzQ-MO-N95" id="FIi-tn-bIf"/>
