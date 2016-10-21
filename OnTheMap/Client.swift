@@ -289,6 +289,7 @@ class Client: NSObject {
     
     
     
+    
     // shared instance singleton
     class func sharedInstance() -> Client {
         struct Singleton {

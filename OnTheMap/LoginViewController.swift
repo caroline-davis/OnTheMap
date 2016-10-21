@@ -51,5 +51,53 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.text = ""
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+        subscribeToKeyboardHideNotifications()
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardHideNotifications()
+    }
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    // When the keyboardWillShow notification is received, shift the view's frame up
+    // - Only set for bottom text to make sure top text is always seen
+    func keyboardWillShow(notification: NSNotification) {
+        if self.password.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification) - 45
+        } else if self.username.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification) - 80
+        }
+    }
+    
+    func subscribeToKeyboardHideNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardHideNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    // When the keyboardWillHide notification is received, shift the view's frame down
+    func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+
+    
 
 }

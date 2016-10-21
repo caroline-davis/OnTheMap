@@ -62,7 +62,6 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
     
-    
     // When enter is clicked, keyboard toggles down
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -95,6 +94,8 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
         self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
         }
     
+  
+
 
 
     
