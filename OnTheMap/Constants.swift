@@ -10,7 +10,6 @@ import Foundation
 import MapKit
 
 extension Client {
-
     
     // constant URLs
     struct URLs {
@@ -26,7 +25,7 @@ extension Client {
     struct StudentLocationParameters {
         static let limit = "?limit=100"
         static let skipAndLimit = "?limit=200&skip=400"
-        static let descendingOrder = "?order=-updatedAt"
+        static let descendingOrder = "&order=-updatedAt"
         static let whereStudentIs = "?where={uniqueKey:uniqueKey}"
     }
     

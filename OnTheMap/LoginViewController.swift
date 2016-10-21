@@ -9,10 +9,11 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
- 
+    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var login: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         subscribeToKeyboardNotifications()
         subscribeToKeyboardHideNotifications()
     }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
@@ -33,15 +35,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func clickedLogin(sender: AnyObject) {
         Client.sharedInstance().postSessionID(self, username: self.username.text!, password: self.password.text!) { (success, errorString) in
-                performUIUpdatesOnMain() {
-                    if success {
-                        self.completeLogin()
-                    } else {
-                        Client.sharedInstance().alertMessage(errorString!, sender: self)
-                    }
+            performUIUpdatesOnMain() {
+                if success {
+                    self.completeLogin()
+                } else {
+                    Client.sharedInstance().alertMessage(errorString!, sender: self)
                 }
             }
         }
+    }
     
     private func completeLogin() {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
@@ -57,7 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // Text field turns blank when user clicks on it
     func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
+        textField.text = ""        
     }
     
     
@@ -100,5 +102,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     
-
 }

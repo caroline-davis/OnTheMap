@@ -194,14 +194,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jaL-z8-COE" secondAttribute="trailing" constant="-20" id="GPB-v9-HNZ"/>
                             <constraint firstItem="jaL-z8-COE" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="-20" id="Ia6-rz-4eB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bVD-2r-j2o" secondAttribute="trailing" constant="20" id="Iu8-i4-S8K"/>
-                            <constraint firstItem="ouj-fr-GUD" firstAttribute="top" secondItem="jaL-z8-COE" secondAttribute="bottom" constant="50" id="KIe-Hb-au7"/>
+                            <constraint firstItem="ouj-fr-GUD" firstAttribute="top" secondItem="jaL-z8-COE" secondAttribute="bottom" constant="25" id="KIe-Hb-au7"/>
                             <constraint firstItem="ouj-fr-GUD" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="20" id="L4Y-Om-mJ4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Uii-wN-BSS" secondAttribute="trailing" constant="20" id="aOF-cX-gKm"/>
                             <constraint firstItem="jaL-z8-COE" firstAttribute="top" secondItem="YVm-Rm-08C" secondAttribute="topMargin" constant="1" id="bII-sv-19g"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lpH-1z-MvT" secondAttribute="trailing" constant="20" id="cKz-8T-jQs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ouj-fr-GUD" secondAttribute="trailing" constant="20" id="dXu-Es-u43"/>
                             <constraint firstItem="bVD-2r-j2o" firstAttribute="leading" secondItem="YVm-Rm-08C" secondAttribute="leadingMargin" constant="20" id="pUd-ZS-d3l"/>
-                            <constraint firstItem="bVD-2r-j2o" firstAttribute="top" secondItem="ouj-fr-GUD" secondAttribute="bottom" constant="20" id="rQb-fM-vZf"/>
+                            <constraint firstItem="bVD-2r-j2o" firstAttribute="top" secondItem="ouj-fr-GUD" secondAttribute="bottom" constant="25" id="rQb-fM-vZf"/>
                             <constraint firstItem="Uii-wN-BSS" firstAttribute="top" secondItem="bVD-2r-j2o" secondAttribute="bottom" constant="30" id="wdh-ts-inA"/>
                         </constraints>
                     </view>

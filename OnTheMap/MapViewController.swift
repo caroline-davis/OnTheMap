@@ -11,16 +11,16 @@ import UIKit
 import MapKit
 
 /**
-* This view controller demonstrates the objects involved in displaying pins on a map.
-*
-* The map is a MKMapView.
-* The pins are represented by MKPointAnnotation instances.
-*
-* The view controller conforms to the MKMapViewDelegate so that it can receive a method 
-* invocation when a pin annotation is tapped. It accomplishes this using two delegate 
-* methods: one to put a small "info" button on the right side of each pin, and one to
-* respond when the "info" button is tapped.
-*/
+ * This view controller demonstrates the objects involved in displaying pins on a map.
+ *
+ * The map is a MKMapView.
+ * The pins are represented by MKPointAnnotation instances.
+ *
+ * The view controller conforms to the MKMapViewDelegate so that it can receive a method
+ * invocation when a pin annotation is tapped. It accomplishes this using two delegate
+ * methods: one to put a small "info" button on the right side of each pin, and one to
+ * respond when the "info" button is tapped.
+ */
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
@@ -87,14 +87,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             // When the array is complete, we add the annotations to the map.
             
             performUIUpdatesOnMain() {
-               self.mapView.addAnnotations(annotations)
+                self.mapView.addAnnotations(annotations)
             }
-
+            
         }
     }
     
     // MARK: - MKMapViewDelegate
-
+    
     // Here we create a view with a "right callout accessory view". You might choose to look into other
     // decoration alternatives. Notice the similarity between this method and the cellForRowAtIndexPath
     // method in TableViewDataSource.
@@ -103,7 +103,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let reuseId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
-
+        
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
@@ -115,7 +115,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         return pinView
     }
-
+    
     
     // This delegate method is implemented to respond to taps. It opens the system browser
     // to the URL specified in the annotationViews subtitle property.

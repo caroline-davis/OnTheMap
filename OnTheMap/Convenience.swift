@@ -15,11 +15,10 @@ extension Client {
     
     func postSessionID(sender: AnyObject, username: String, password: String, completionHandlerForAuth: (success: Bool, errorString: String?) -> Void) {
         
-        let u = "caroline_davis@live.com"
-        let p = "Rainbow_1"
-        let body = "{\"udacity\": {\"username\": \"\(u)\", \"password\": \"\(p)\"}}"
+
+        let body = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
         let url = "\(URLs.authorizationURL)\(Methods.session)"
-    
+        
         
         taskForPostMethod(url, headers: [["Accept":"application/json"]], body: body, URLType: "Udacity") { (success, errorString, parsedResult) in
             if let resultHere = parsedResult?["account"] {
@@ -35,7 +34,7 @@ extension Client {
     
     func getStudentLocation(sender: AnyObject, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) {
         
-        let url = URLs.parseURL
+        let url = "\(URLs.parseURL)\(StudentLocationParameters.limit)\(StudentLocationParameters.descendingOrder)"
         let headers = [
             ["X-Parse-Application-Id":"QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"],
             ["X-Parse-REST-API-Key":"QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"]
@@ -77,7 +76,7 @@ extension Client {
             }
         }
     }
-
+    
     
     func postStudentLocation(mediaURL: String, completionHandlerForAuth: (success: Bool, errorString: String?) -> Void) {
         let lat = Client.sharedInstance().inputPlacemark!.coordinate.latitude
@@ -88,16 +87,16 @@ extension Client {
         let firstName = Client.sharedInstance().studentFirstName!
         
         let body = "{\"uniqueKey\": \"\(accountK)\", \"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\",\"mapString\": \"\(mapStringLocation)\", \"mediaURL\": \"\(mediaURL)\", \"latitude\": \(lat), \"longitude\": \(long)}"
-
+        
         let url = "\(URLs.parseURL)"
         let headers = [
             ["X-Parse-Application-Id":"QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"],
             ["X-Parse-REST-API-Key":"QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"]
         ]
-
+        
         taskForPostMethod(url, headers: headers, body: body, URLType: "Parse") { (success, errorString, parsedResult) in
             completionHandlerForAuth(success: success, errorString: errorString)
         }
     }
-
+    
 }

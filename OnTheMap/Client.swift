@@ -30,12 +30,9 @@ class Client: NSObject {
     override init() {
         super.init()
     }
-        // adding parameters: method: String and parameters: [String:AnyObject]
+    // adding parameters: method: String and parameters: [String:AnyObject]
     func taskForGETMethod(url: String, headers: [[String:String]]?, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
-        /* 1. Set the parameters */
-    
- 
         /* 2/3. Build the URL, Configure the request */
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         if (headers != nil) {
@@ -46,9 +43,8 @@ class Client: NSObject {
             }
         }
         
-        
         let session = NSURLSession.sharedSession()
-
+        
         
         /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
@@ -61,7 +57,7 @@ class Client: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                sendError("There was an error with your request: \(error?.localizedDescription)")
                 return
             }
             
@@ -76,7 +72,7 @@ class Client: NSObject {
                 sendError("No data was returned by the request!")
                 return
             }
-
+            
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
         }
@@ -86,7 +82,7 @@ class Client: NSObject {
         
         return task
     }
-
+    
     
     func taskForPostMethod(url: String, headers: [[String:String]], body: String, URLType: String, completionHandlerForPOST: (success: Bool, errorString: String?, parsedResult: AnyObject? ) -> Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
@@ -109,7 +105,7 @@ class Client: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                sendError("There was an error with your request: \(error?.localizedDescription)")
                 return
             }
             
@@ -122,7 +118,7 @@ class Client: NSObject {
                     sendError("Your request returned a status code other than 2xx!")
                 }
                 return
-            } 
+            }
             
             /* GUARD: Was there any data returned? */
             guard let data = data else {
@@ -151,7 +147,7 @@ class Client: NSObject {
             
         }
         task.resume()
-
+        
     }
     
     func taskForGETProfile(url: String, completionHandlerForGET: (data: AnyObject?, response: AnyObject?, error: NSError?) -> Void) {
@@ -168,7 +164,7 @@ class Client: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                sendError("There was an error with your request: \(error?.localizedDescription)")
                 return
             }
             
@@ -198,7 +194,7 @@ class Client: NSObject {
             }
             completionHandlerForGET(data: parsedResult, response: true, error: nil)
         }
-         task.resume()
+        task.resume()
     }
     
     
@@ -212,7 +208,6 @@ class Client: NSObject {
             let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
             completionHandlerForConvertData(result: nil, error: NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
-
         
         completionHandlerForConvertData(result: parsedResult, error: nil)
     }
@@ -220,7 +215,7 @@ class Client: NSObject {
     func taskToDeleteSession(completionHandlerForDELETE: (success: Bool, errorString: String?) -> Void) {
         
         
-         /* 2/3. Build the URL, Configure the request */
+        /* 2/3. Build the URL, Configure the request */
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "DELETE"
         var xsrfCookie: NSHTTPCookie? = nil
@@ -233,9 +228,9 @@ class Client: NSObject {
         }
         let session = NSURLSession.sharedSession()
         
-         /* 4. Make the request */
+        /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) { data, response, error in
-                
+            
             func sendError(error: String) {
                 print(error)
                 completionHandlerForDELETE(success: false, errorString: error)
@@ -243,7 +238,7 @@ class Client: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                sendError("There was an error with your request: \(error?.localizedDescription)")
                 return
             }
             
@@ -297,7 +292,6 @@ class Client: NSObject {
         }
         return Singleton.sharedInstance
     }
-    
     
     
 }
