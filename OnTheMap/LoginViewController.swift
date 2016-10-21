@@ -18,8 +18,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.username.delegate = self
         self.password.delegate = self
-        
-
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+        subscribeToKeyboardHideNotifications()
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardHideNotifications()
     }
     
     @IBAction func clickedLogin(sender: AnyObject) {
@@ -51,16 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.text = ""
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        subscribeToKeyboardNotifications()
-        subscribeToKeyboardHideNotifications()
-    }
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
-        unsubscribeFromKeyboardHideNotifications()
-    }
+    
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
     }
@@ -92,6 +92,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.frame.origin.y = 0
     }
     
+    // Gets keyboard height
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect

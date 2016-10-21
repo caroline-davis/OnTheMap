@@ -19,6 +19,17 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
       
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+        subscribeToKeyboardHideNotifications()
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardHideNotifications()
+    }
+    
     @IBOutlet weak var pinOnMap: UIButton!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var enterLocation: UITextField!
@@ -94,7 +105,41 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
         self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
         }
     
-  
+
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddPinViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    // When the keyboardWillShow notification is received, shift the view's frame up
+    func keyboardWillShow(notification: NSNotification) {
+        if self.enterLocation.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification) - 70
+        }
+    }
+    
+    func subscribeToKeyboardHideNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddPinViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardHideNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    // When the keyboardWillHide notification is received, shift the view's frame down
+    func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+
 
 
 

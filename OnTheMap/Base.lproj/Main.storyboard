@@ -35,16 +35,6 @@
                                 <color key="textColor" red="0.14822214841842651" green="0.87489861249923706" blue="0.93948811292648315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNu-ZY-iTX">
-                                <rect key="frame" x="273" y="417" width="55" height="41"/>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="21"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.1482221484" green="0.87489861250000001" blue="0.93948811290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickedLogin:" destination="xy9-Sj-2TG" eventType="touchUpInside" id="9i4-yA-hKb"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="faJ-It-HtH" userLabel="Username">
                                 <rect key="frame" x="132" y="285" width="336" height="30"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,6 +45,16 @@
                                     <outlet property="delegate" destination="xy9-Sj-2TG" id="b6e-gR-hMk"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNu-ZY-iTX">
+                                <rect key="frame" x="273" y="417" width="55" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="21"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.1482221484" green="0.87489861250000001" blue="0.93948811290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedLogin:" destination="xy9-Sj-2TG" eventType="touchUpInside" id="9i4-yA-hKb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -72,6 +72,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="X0n-TS-9BJ"/>
                     <connections>
+                        <outlet property="login" destination="vNu-ZY-iTX" id="zmp-q6-ddH"/>
                         <outlet property="password" destination="F5b-Sl-YPd" id="i67-fr-kdi"/>
                         <outlet property="username" destination="faJ-It-HtH" id="BdG-PQ-Guu"/>
                         <segue destination="bkz-AS-2ha" kind="show" identifier="PushToNavController" id="hfs-Ze-Bqf"/>
