@@ -29,8 +29,8 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
         
         self.mapView.setRegion(region, animated: true)
         self.mapView.addAnnotation(Client.sharedInstance().inputPlacemark!)
-    }
     
+    }
     
     // When enter is clicked, keyboard toggles down
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -51,7 +51,7 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
         }
     }
     
-    @IBAction func pressSumbit (sender: AnyObject) {
+    @IBAction func pressSubmit (sender: AnyObject) {
         let webLink = addLink.text
         Client.sharedInstance().postStudentLocation(webLink!) { (success, errorString) in
             performUIUpdatesOnMain() {
@@ -64,11 +64,12 @@ class AddLinkViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
         }
     }
 
-
-
     // cancels pop over and goes back to the map/list view
     @IBAction func cancel() {
         self.presentingViewController!.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+
+
     
 }

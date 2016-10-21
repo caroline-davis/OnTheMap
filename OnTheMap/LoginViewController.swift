@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.username.delegate = self
         self.password.delegate = self
+        
+
     }
     
     @IBAction func clickedLogin(sender: AnyObject) {
@@ -49,4 +51,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.text = ""
     }
     
+
 }

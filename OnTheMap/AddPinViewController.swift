@@ -15,6 +15,8 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewDidLoad()
         self.enterLocation.delegate = self
         activityIndicator.hidesWhenStopped = true
+        
+      
     }
     
     @IBOutlet weak var pinOnMap: UIButton!
@@ -92,5 +94,8 @@ class AddPinViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func cancel() {
         self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
         }
+    
+
+
     
 }
